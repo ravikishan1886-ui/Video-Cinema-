@@ -1,0 +1,291 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Cinema • Upload & Watch</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0e17;
+      color: #e0e7ff;
+      min-height: 100vh;
+    }
+
+    /* Header / Top bar */
+    .topbar {
+      background: linear-gradient(to right, #1e3a5f, #0f2542);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #2a4b7a;
+    }
+    .menu-btn, .search-btn {
+      font-size: 1.5rem;
+      color: #a3c0ff;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #c7d2fe;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #60a5fa;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 280px;
+      background: #0f172a;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 100;
+      overflow-y: auto;
+      border-right: 1px solid #1e40af44;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+    }
+    .close-btn {
+      font-size: 1.8rem;
+      color: #94a3b8;
+      cursor: pointer;
+    }
+    .menu-list {
+      padding: 12px 0;
+    }
+    .menu-item {
+      padding: 14px 20px;
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .menu-item:hover { background: #1e293b; }
+    .menu-item.dropdown::after { content:"▼"; font-size:0.8rem; opacity:0.6; }
+
+    /* Main content */
+    .main {
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0 30px;
+      font-size: 2.4rem;
+      color: #a5b4fc;
+      text-shadow: 0 0 15px #6366f1;
+    }
+
+    /* Upload area */
+    .upload-area {
+      text-align: center;
+      margin: 30px 0 50px;
+    }
+    .upload-btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(79,70,229,0.4);
+      transition: all 0.25s;
+    }
+    .upload-btn:hover {
+      background: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(99,102,241,0.5);
+    }
+    input[type="file"] { display: none; }
+
+    /* Video grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .video-card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      transition: all 0.22s;
+    }
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-color: #6366f1;
+    }
+    video {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #000;
+    }
+    .card-footer {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .delete-btn {
+      background: #e11d48;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .delete-btn:hover { background: #f43f5e; }
+
+    /* Overlay when sidebar open */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .overlay.active { opacity: 1; pointer-events: all; }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <div class="logo">VIDEO CINEMA</div>
+    <div class="search-btn">🔍</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">VIDEO CINEMA</div>
+      <div class="close-btn" onclick="toggleSidebar()">×</div>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">Home</div>
+      <div class="menu-item dropdown">Language</div>
+      <div class="menu-item">Movies</div>
+      <div class="menu-item">Series</div>
+      <div class="menu-item">Ongoing</div>
+      <div class="menu-item dropdown">Genres</div>
+      <div class="menu-item">Watch Online</div>
+      <div class="menu-item">Downloads</div>
+      <div class="menu-item">Bookmarks</div>
+      <div class="menu-item">History</div>
+      <div class="menu-item">Settings</div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Main content -->
+  <div class="main">
+    <h1>Video Cinema</h1>
+
+    <div class="upload-area">
+      <label for="video-upload" class="upload-btn">Upload Your Video</label>
+      <input type="file" id="video-upload" accept="video/*">
+    </div>
+
+    <div class="video-grid" id="videoList"></div>
+  </div>
+
+<script>
+// Sidebar toggle
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('active');
+}
+
+// Video management
+const videoList = document.getElementById('videoList');
+const uploadInput = document.getElementById('video-upload');
+
+let videos = JSON.parse(localStorage.getItem('myVideos') || '[]');
+
+function saveVideos() {
+  localStorage.setItem('myVideos', JSON.stringify(videos));
+}
+
+function renderVideos() {
+  videoList.innerHTML = '';
+  videos.forEach((vid, index) => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+
+    const videoEl = document.createElement('video');
+    videoEl.src = vid.data;
+    videoEl.controls = true;
+    videoEl.preload = 'metadata';
+
+    const footer = document.createElement('div');
+    footer.className = 'card-footer';
+
+    const name = document.createElement('span');
+    name.textContent = vid.name;
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'delete-btn';
+    delBtn.textContent = 'Delete';
+    delBtn.onclick = () => {
+      if (confirm(`Delete ${vid.name}?`)) {
+        videos.splice(index, 1);
+        saveVideos();
+        renderVideos();
+      }
+    };
+
+    footer.appendChild(name);
+    footer.appendChild(delBtn);
+
+    card.appendChild(videoEl);
+    card.appendChild(footer);
+    videoList.appendChild(card);
+  });
+}
+
+// Upload handler
+uploadInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    videos.push({
+      name: file.name,
+      data: ev.target.result,
+      date: new Date().toLocaleString()
+    });
+    saveVideos();
+    renderVideos();
+    uploadInput.value = ''; // reset
+  };
+  reader.readAsDataURL(file);
+});
+
+// Load on start
+renderVideos();
+</script>
+</body>
+</html>
