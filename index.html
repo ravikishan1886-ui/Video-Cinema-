@@ -1,0 +1,321 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Cinema - Dr. Stone S1</title>
+
+<style>
+body { 
+  margin:0; 
+  background:#000000; 
+  font-family:Arial, sans-serif; 
+  color:#e0e0e0; 
+}
+header { 
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://i.ibb.co/cp56rT0/IMG-20260214-185623.jpg') center/cover no-repeat; 
+  padding:16px 20px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  border-bottom:2px solid #E50914; 
+}
+.logo { font-size:28px; font-weight:bold; color:#E50914; letter-spacing:2px; text-shadow:1px 1px 4px #000; }
+nav a { color:#e0e0e0; margin-left:18px; text-decoration:none; font-size:15px; }
+nav a:hover { color:#E50914; }
+.main-thumbnail { width:100%; height:320px; object-fit:cover; display:block; cursor:pointer; }
+.thumbnail-overlay { 
+  position:absolute; 
+  bottom:20px; 
+  left:0; 
+  right:0; 
+  text-align:center; 
+  background:rgba(0,0,0,0.8); 
+  padding:12px 0; 
+}
+.thumbnail-overlay h1 { margin:0; font-size:28px; color:#fff; text-shadow:2px 2px 6px #000; }
+.thumbnail-overlay p { margin:6px 0 0; font-size:16px; color:#ddd; }
+.section-title { padding:20px 10px 10px; font-size:22px; text-align:center; color:#E50914; }
+.search-container { padding:0 20px 10px; text-align:center; display:none; }
+#searchInput { 
+  width:90%; max-width:500px; 
+  padding:12px 15px; font-size:16px; 
+  border:2px solid #333; border-radius:30px; 
+  background:#111; color:#e0e0e0; outline:none; 
+}
+#searchInput:focus { border-color:#E50914; }
+#episodesSection { display:none; background:#000000; }
+.episode-list { list-style:none; padding:0; margin:0; }
+.episode-item {
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid #222;
+  cursor:pointer;
+  transition:0.2s;
+  background:#000000;
+}
+.episode-item:hover { background:#1a0000; }
+.ep-num { 
+  font-size:20px; 
+  font-weight:bold; 
+  color:#00b0ff; 
+  background:#001122; 
+  padding:6px 12px; 
+  border-radius:6px; 
+  margin-right:15px; 
+  min-width:60px; 
+  text-align:center; 
+}
+.ep-title { font-size:17px; font-weight:bold; flex:1; color:#e0e0e0; }
+.ep-arrow { font-size:24px; color:#00b0ff; font-weight:bold; }
+.video-section { padding:20px; text-align:center; background:#000000; }
+#videoFrame { width:100%; max-width:960px; height:540px; border:none; }
+.loading-notice, .double-click-notice, .player-notice, .next-suggestion {
+  margin: 12px auto;
+  padding: 12px 16px;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  max-width: 960px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e0e0e0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+.loading-notice { border-color: #444; color: #ffecb3; }
+.double-click-notice { border-color: #224466; color: #bbdefb; }
+.player-notice { border-color: #440000; color: #ffcccc; }
+.next-suggestion { border-color: #550000; color: #ffcccc; }
+.next-btn {
+  margin-top: 10px;
+  padding: 10px 24px;
+  background: #E50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.next-btn:hover { background: #c40710; }
+footer { background:#000000; text-align:center; padding:15px; margin-top:30px; font-size:14px; border-top:1px solid #222; color:#888; }
+</style>
+
+<script>
+// Episodes data (last one updated to 22-24)
+const episodes = [
+  { num:1,  title:'Episode 1: Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-01-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p_202602' },
+  { num:2,  title:'Episode 2: King of the Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-02-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p-1' },
+  { num:3,  title:'Episode 3: Weapons of Science', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-03-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
+  { num:4,  title:'Episode 4: Fire the Smoke Signal', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-04-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
+  { num:5,  title:'Episode 5: Stone World the Beginning', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-05-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
+  { num:6,  title:'Episode 6: The Shape of the Future', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-06-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
+  { num:7,  title:'Episode 7: Thousands of Years of Boredom', url:'https://archive.org/embed/video-cinema-s-1-e-07-dr.-stone-720p-hindi-dubbed-4u.in' },
+  { num:9,  title:'Episode 9: A Flimsy Alliance', url:'https://archive.org/embed/video-cinema-s-1-e-09-dr.-stone-720p-hindi-dubbed-4u.in' },
+  { num:11, title:'Episode 11: The Kingdom of Science is Born', url:'https://archive.org/embed/video-cinema-s-1-e-011-dr.-stone-720p-hindi-dubbed-4u.in_202602' },
+  { num:12, title:'Episode 12: The Miracle Cave', url:'https://archive.org/embed/video-cinema-s-1-e-012-dr.-stone-720p-hindi-dubbed-4u.in_202602' },
+  { num:13, title:'Episode 13: Masked Warrior', url:'https://archive.org/embed/video-cinema-s-1-e-013-dr-stone-720p-hindi-dubbed-4u.in' },
+  { num:'14-21', title:'Episodes 14–21 (Batch)', url:'https://archive.org/embed/video-cinema-s-1-e-018-dr-stone-720p-hindi-dubbed-4u.in' },
+  { num:'22-24', title:'Episodes 22–24', url:'https://archive.org/embed/video-cinema-s-1-e-023-dr-stone-720p-hindi-dubbed-4u.in' }
+];
+
+let currentEpIndex = -1;
+let isInVideoMode = false;
+
+window.addEventListener('popstate', function(event) {
+  if (isInVideoMode) {
+    backToHome();
+    history.pushState({ page: 'home' }, '', window.location.pathname);
+  }
+});
+
+function toggleEpisodes() {
+  const section = document.getElementById("episodesSection");
+  section.style.display = section.style.display === "block" ? "none" : "block";
+  if (section.style.display === "block") {
+    document.querySelector(".search-container").style.display = "block";
+    window.scrollTo({ top: section.offsetTop - 60, behavior: 'smooth' });
+  } else {
+    document.querySelector(".search-container").style.display = "none";
+  }
+}
+
+function showEpisode(url, title, epNum = null) {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("videoSection").style.display = "block";
+  document.getElementById("videoFrame").src = url;
+  document.getElementById("nowWatching").innerText = "Now Watching: " + title;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById("nextEpisodeSection").style.display = "none";
+
+  isInVideoMode = true;
+  history.pushState({ page: 'video' }, '', '#watching');
+
+  currentEpIndex = epNum !== null ? episodes.findIndex(e => e.num === epNum) : episodes.findIndex(e => e.title === title);
+  setTimeout(showNextSuggestion, 23 * 60 * 1000);
+}
+
+function showNextSuggestion() {
+  const sec = document.getElementById("nextEpisodeSection");
+  if (currentEpIndex < 0 || currentEpIndex >= episodes.length - 1) {
+    sec.innerHTML = `<p style="font-size:17px; color:#ccc;">End of Season 1 – Thanks for watching!</p>`;
+  } else {
+    const next = episodes[currentEpIndex + 1];
+    sec.innerHTML = `
+      <p style="font-size:18px; margin:0 0 10px;">Next: ${next.title}</p>
+      <button class="next-btn" onclick="playNext()">Play Next Episode</button>
+    `;
+  }
+  sec.style.display = "block";
+}
+
+function playNext() {
+  if (currentEpIndex < 0 || currentEpIndex >= episodes.length - 1) return;
+  const next = episodes[currentEpIndex + 1];
+  showEpisode(next.url, next.title, next.num);
+}
+
+function backToHome() {
+  document.getElementById("home").style.display = "block";
+  document.getElementById("videoSection").style.display = "none";
+  document.getElementById("videoFrame").src = "";
+  document.getElementById("nextEpisodeSection").style.display = "none";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  currentEpIndex = -1;
+  isInVideoMode = false;
+}
+
+function filterEpisodes() {
+  const val = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".episode-item").forEach(item => {
+    const numText = item.querySelector(".ep-num")?.textContent.toLowerCase() || "";
+    const titleText = item.querySelector(".ep-title")?.textContent.toLowerCase() || "";
+    item.style.display = (numText.includes(val) || titleText.includes(val)) ? "flex" : "none";
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">VIDEO CINEMA</div>
+  <nav>
+    <a href="#" onclick="backToHome(); return false;">Home</a>
+    <a href="#">Movies</a>
+    <a href="#">Web Series</a>
+    <a href="#">Anime</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div id="home">
+  <div style="position:relative;">
+    <img src="https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg" alt="Dr. Stone Season 1" class="main-thumbnail" onclick="toggleEpisodes()">
+    <div class="thumbnail-overlay">
+      <h1>Dr. Stone - Season 1</h1>
+      <p>Anime series about science revival in a petrified world</p>
+    </div>
+  </div>
+
+  <div id="episodesSection">
+    <h2 class="section-title">Episode Lists</h2>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" onkeyup="filterEpisodes()" placeholder="Episode number or title">
+    </div>
+
+    <ul class="episode-list">
+      <li class="episode-item" onclick="showEpisode(episodes[0].url, episodes[0].title, 1)">
+        <span class="ep-num">1</span>
+        <span class="ep-title">Episode 1: Stone World</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[1].url, episodes[1].title, 2)">
+        <span class="ep-num">2</span>
+        <span class="ep-title">Episode 2: King of the Stone World</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[2].url, episodes[2].title, 3)">
+        <span class="ep-num">3</span>
+        <span class="ep-title">Episode 3: Weapons of Science</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[3].url, episodes[3].title, 4)">
+        <span class="ep-num">4</span>
+        <span class="ep-title">Episode 4: Fire the Smoke Signal</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[4].url, episodes[4].title, 5)">
+        <span class="ep-num">5</span>
+        <span class="ep-title">Episode 5: Stone World the Beginning</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[5].url, episodes[5].title, 6)">
+        <span class="ep-num">6</span>
+        <span class="ep-title">Episode 6: The Shape of the Future</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[6].url, episodes[6].title, 7)">
+        <span class="ep-num">7</span>
+        <span class="ep-title">Episode 7: Thousands of Years of Boredom</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[7].url, episodes[7].title, 9)">
+        <span class="ep-num">9</span>
+        <span class="ep-title">Episode 9: A Flimsy Alliance</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[8].url, episodes[8].title, 11)">
+        <span class="ep-num">11</span>
+        <span class="ep-title">Episode 11: The Kingdom of Science is Born</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[9].url, episodes[9].title, 12)">
+        <span class="ep-num">12</span>
+        <span class="ep-title">Episode 12: The Miracle Cave</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[10].url, episodes[10].title, 13)">
+        <span class="ep-num">13</span>
+        <span class="ep-title">Episode 13: Masked Warrior</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <li class="episode-item" onclick="showEpisode(episodes[11].url, episodes[11].title, '14-21')">
+        <span class="ep-num">14-21</span>
+        <span class="ep-title">Episodes 14–21 (Batch)</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+      <!-- Last episode updated to 22-24 -->
+      <li class="episode-item" onclick="showEpisode(episodes[12].url, episodes[12].title, '22-24')">
+        <span class="ep-num">22-24</span>
+        <span class="ep-title">Episodes 22–24</span>
+        <span class="ep-arrow">▶</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="videoSection" class="video-section">
+  <h2 id="nowWatching">Now Watching</h2>
+  <iframe id="videoFrame" src="" allowfullscreen></iframe>
+
+  <div class="double-click-notice">
+    Double click the video for better experience
+  </div>
+
+  <div class="player-notice">
+    <strong>Notice:</strong> Ignore any other disclaimers, ads, download options, or unrelated buttons that may appear in the video player. Just enjoy watching!
+  </div>
+
+  <div id="nextEpisodeSection" class="next-suggestion"></div>
+
+  <br>
+  <button onclick="backToHome()" style="padding:12px 30px; background:#E50914; color:white; border:none; border-radius:6px; font-size:18px; cursor:pointer;">Back to Home</button>
+</div>
+
+<footer>© 2026 Video Cinema | All Rights Reserved</footer>
+
+</body>
+</html>
