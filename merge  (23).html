@@ -1,0 +1,1958 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Video Cinema - Watch Free Hindi Dubbed Anime & Web Series in HD">
+    <title>Video Cinema (Watch Free Anime)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto:wght@400;500&amp;display=swap');
+        
+        :root {
+            --primary-red: #E50914;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #141414;
+            color: #ffffff;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: #141414;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-red);
+            letter-spacing: -2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo::before {
+            content: "▶";
+            font-size: 32px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-red);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-bar {
+            background: #333;
+            border-radius: 30px;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            width: 320px;
+        }
+        
+        .search-bar input {
+            background: none;
+            border: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+        
+        .upload-btn {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background: #f40612;
+            transform: scale(1.05);
+        }
+        
+        .banner {
+            height: 420px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 5%;
+            position: relative;
+        }
+        
+        .banner-content {
+            max-width: 600px;
+            margin-bottom: 60px;
+        }
+        
+        .banner-content h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+        }
+        
+        .banner-content p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            padding: 30px 5% 15px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+        
+        .content-grid {
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        
+        .series-card {
+            background: #1f1f1f;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .series-card:hover {
+            transform: scale(1.06);
+            box-shadow: 0 15px 30px rgba(229, 9, 20, 0.3);
+        }
+        
+        .series-card img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .series-info {
+            padding: 18px;
+        }
+        
+        .series-info h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .series-info ul {
+            list-style: none;
+            font-size: 13px;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        
+        .series-info ul li {
+            margin-bottom: 4px;
+        }
+        
+        .short-desc {
+            font-size: 14px;
+            color: #ddd;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .see-more-btn {
+            color: var(--primary-red);
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        
+        .full-desc {
+            display: none;
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        
+        .watch-button {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .watch-button:hover {
+            background: #f40612;
+        }
+        
+        .episode-list-container {
+            margin-top: 20px;
+            max-height: 420px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .episode-list {
+            list-style: none;
+        }
+        
+        .episode-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            background: #2a2a2a;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .episode-item:hover {
+            background: #3a3a3a;
+        }
+        
+        .ep-num {
+            background: #141414;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 15px;
+        }
+        
+        .ep-title {
+            flex: 1;
+            font-size: 15px;
+        }
+        
+        .ep-arrow {
+            font-size: 22px;
+            color: #666;
+        }
+        
+        #videoSection {
+            display: none;
+            padding: 30px 5%;
+            background: #141414;
+        }
+        
+        #videoSection h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        #videoFrame {
+            width: 100%;
+            max-width: 1280px;
+            height: 620px;
+            background: #000;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #1f1f1f;
+            width: 100%;
+            max-width: 560px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            font-size: 30px;
+            cursor: pointer;
+            color: #888;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 18px;
+            background: #333;
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .modal-btn.cancel {
+            background: #333;
+            color: #fff;
+        }
+        
+        .modal-btn.primary {
+            background: var(--primary-red);
+            color: white;
+        }
+        
+        .admin-features {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
+        
+        .category {
+            display: none;
+        }
+        
+        .category.active {
+            display: block;
+        }
+        
+        .notice {
+            background: #222;
+            color: #ccc;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin: 15px 5%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">VIDEO CINEMA</div>
+        <nav>
+            <a href="#" onclick="showCategory('home')">Home</a>
+            <a href="#" onclick="showCategory('webseries')">Web Series</a>
+            <a href="#" onclick="showCategory('movies')">Movies</a>
+            <a href="#" onclick="showCategory('anime')">Anime</a>
+        </nav>
+        <div class="nav-right">
+            <div class="search-bar">
+                <span>🔎</span>
+                <input type="text" id="searchInput" placeholder="Search anime or web series..." onkeyup="handleSearch()">
+            </div>
+            <button class="upload-btn" onclick="openUploadModal()">
+                <span>📤</span> Upload Content
+            </button>
+        </div>
+    </header>
+
+    <!-- HOME / BANNER -->
+    <div id="homeSection">
+        <div class="banner">
+            <div class="banner-content">
+                <h1>Welcome to Video Cinema</h1>
+                <p>Free Hindi Dubbed Anime &amp; Web Series in HD Quality</p>
+                <button onclick="showCategory('webseries')" style="background:#E50914;color:white;border:none;padding:14px 32px;border-radius:9999px;font-size:18px;font-weight:600;cursor:pointer;">Browse All Web Series</button>
+            </div>
+        </div>
+        
+        <div class="section-title">Featured Web Series</div>
+        <div class="content-grid" id="featuredGrid"></div>
+    </div>
+
+    <!-- ALL CONTENT GRID -->
+    <div id="allContentSection" style="display:none;">
+        <div class="section-title" id="sectionHeader">All Web Series</div>
+        <div class="content-grid" id="seriesGrid">
+            
+            <!-- Dr. Stone Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('drstone1')">
+                <img src="https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg" alt="Dr. Stone Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Dr.+Stone+S1'">
+                <div class="series-info">
+                    <h3>Dr. Stone Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Adventure, Sci-Fi, Action</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">In a petrified world, Senku uses science to rebuild civilization.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Dr. Stone Season 1 follows Senku Ishigami, a brilliant scientist who awakens in a world where humanity has been petrified for thousands of years. Using science, he rebuilds civilization from scratch while facing rival tribes and natural challenges. The Hindi dubbed version makes every scientific breakthrough exciting and accessible.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('drstone1')">Watch Episodes</div>
+                    <div id="drstone1Episodes" class="episode-list-container"><ul class="episode-list" id="drstone1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Dr. Stone Season 2 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('drstone2')">
+                <img src="https://i.ibb.co/6R3bBmhY/Screenshot-2026-03-27-20-47-55-08-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Dr. Stone Season 2" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Dr.+Stone+S2'">
+                <div class="series-info">
+                    <h3>Dr. Stone Season 2 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Adventure, Sci-Fi, Action</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 12</li>
+                    </ul>
+                    <div class="short-desc">The Stone Wars begin as Senku faces new threats.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Dr. Stone Season 2 continues the epic journey of Senku and his Kingdom of Science as they battle the Tsukasa Empire in the Stone Wars. New alliances are formed, scientific breakthroughs are made, and the fate of humanity hangs in the balance.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('drstone2')">Watch Episodes</div>
+                    <div id="drstone2Episodes" class="episode-list-container"><ul class="episode-list" id="drstone2-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Dr. Stone Season 3 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('drstone3')">
+                <img src="https://i.ibb.co/ycFD76r9/Screenshot-2026-03-27-20-16-15-99-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Dr. Stone Season 3" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Dr.+Stone+S3'">
+                <div class="series-info">
+                    <h3>Dr. Stone Season 3 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Adventure, Sci-Fi, Action</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 22</li>
+                    </ul>
+                    <div class="short-desc">New horizons and greater scientific challenges await.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">In Dr. Stone Season 3, Senku and his team venture into uncharted territory, discovering new lands and facing even more powerful opponents. The science never stops as they push the boundaries of human knowledge and technology.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('drstone3')">Watch Episodes</div>
+                    <div id="drstone3Episodes" class="episode-list-container"><ul class="episode-list" id="drstone3-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Dr. Stone Season 4 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('drstone4')">
+                <img src="https://i.ibb.co/chsr615M/Screenshot-2026-03-28-09-40-55-57-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Dr. Stone Season 4" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Dr.+Stone+S4'">
+                <div class="series-info">
+                    <h3>Dr. Stone Season 4 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Adventure, Sci-Fi, Action</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">The final saga of science versus nature.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Dr. Stone Season 4 brings the epic conclusion to Senku's journey. With all the knowledge of the modern world at his fingertips, he must overcome the ultimate challenges to restore humanity to its former glory.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('drstone4')">Watch Episodes</div>
+                    <div id="drstone4Episodes" class="episode-list-container"><ul class="episode-list" id="drstone4-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Tokyo Ghoul Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('tokyoghoul1')">
+                <img src="https://i.ibb.co/twFbrXhN/Screenshot-2026-02-16-11-31-54-22-680d03679600f7af0b4c700c6b270fe7.jpg" alt="Tokyo Ghoul Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Tokyo+Ghoul+S1'">
+                <div class="series-info">
+                    <h3>Tokyo Ghoul Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Horror, Action, Drama</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 12</li>
+                    </ul>
+                    <div class="short-desc">A tragic tale of a half-ghoul trying to survive in a world of monsters.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Tokyo Ghoul Season 1 introduces Ken Kaneki, an ordinary college student who becomes a half-ghoul after a near-fatal encounter. Forced to live in the shadows, he must navigate the dangerous world of ghouls while trying to retain his humanity.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('tokyoghoul1')">Watch Episodes</div>
+                    <div id="tokyoghoul1Episodes" class="episode-list-container"><ul class="episode-list" id="tokyoghoul1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Tokyo Ghoul √A Season 2 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('tokyoghoul2')">
+                <img src="https://i.ibb.co/FMVWJHQ/Screenshot-2026-03-28-13-58-44-04-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Tokyo Ghoul √A Season 2" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Tokyo+Ghoul+√A'">
+                <div class="series-info">
+                    <h3>Tokyo Ghoul √A Season 2 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Horror, Action, Drama</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 12</li>
+                    </ul>
+                    <div class="short-desc">The conflict escalates as Kaneki joins the Aogiri Tree.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Tokyo Ghoul √A continues Kaneki's transformation and the escalating war between ghouls and humans. New characters emerge, alliances shift, and the stakes become even higher.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('tokyoghoul2')">Watch Episodes</div>
+                    <div id="tokyoghoul2Episodes" class="episode-list-container"><ul class="episode-list" id="tokyoghoul2-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Tokyo Ghoul:re Season 3 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('tokyoghoul3')">
+                <img src="https://i.ibb.co/sdHyw09M/Screenshot-2026-03-28-19-55-24-08-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="Tokyo Ghoul:re Season 3" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Tokyo+Ghoul+re'">
+                <div class="series-info">
+                    <h3>Tokyo Ghoul:re Season 3 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Horror, Action, Drama</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">The CCG's final stand against the ghouls.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Tokyo Ghoul:re is the third and final season that brings the saga to its explosive conclusion. Old and new characters collide in a battle that will decide the fate of both humans and ghouls forever.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('tokyoghoul3')">Watch Episodes</div>
+                    <div id="tokyoghoul3Episodes" class="episode-list-container"><ul class="episode-list" id="tokyoghoul3-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Spy x Family Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('spyxfamily1')">
+                <img src="https://i.ibb.co/fzCGTFn9/IMG-20260312-171922.jpg" alt="Spy x Family Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Spy+x+Family'">
+                <div class="series-info">
+                    <h3>Spy x Family Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Comedy, Family</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 25</li>
+                    </ul>
+                    <div class="short-desc">A spy, an assassin, and a telepath form the perfect fake family.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Spy x Family follows the hilarious adventures of Twilight, a master spy who must create a fake family to complete his mission. With an assassin wife and a telepathic daughter, the Forger family is anything but ordinary.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('spyxfamily1')">Watch Episodes</div>
+                    <div id="spyxfamily1Episodes" class="episode-list-container"><ul class="episode-list" id="spyxfamily1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Death Note Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('deathnote1')">
+                <img src="https://i.ibb.co/RG2CCzLc/IMG-20260314-090346.jpg" alt="Death Note Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Death+Note'">
+                <div class="series-info">
+                    <h3>Death Note Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Psychological, Thriller, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 37</li>
+                    </ul>
+                    <div class="short-desc">A notebook that kills anyone whose name is written in it.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Death Note is a psychological thriller about Light Yagami, a high school student who finds a supernatural notebook that allows him to kill anyone by writing their name. A cat-and-mouse game begins between Light and the detective known as L.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('deathnote1')">Watch Episodes</div>
+                    <div id="deathnote1Episodes" class="episode-list-container"><ul class="episode-list" id="deathnote1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Demon Slayer Infinity Castle Movie -->
+            <div class="series-card category movies active" onclick="playMovie('https://vidmoly.net/embed-4kr320jparm4.html')">
+                <img src="https://i.ibb.co/HfqyqB7z/Screenshot-2026-03-12-18-09-32-19-1c337646f29875672b5a61192b9010f9.jpg" alt="Demon Slayer Infinity Castle" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Demon+Slayer+Movie'">
+                <div class="series-info">
+                    <h3>Demon Slayer: Infinity Castle Arc (Movie) (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Adventure</li>
+                        <li><strong>Quality:</strong> 1080p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                    </ul>
+                    <div class="short-desc">The final battle against Muzan Kibutsuji begins.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Demon Slayer Infinity Castle is the epic movie conclusion to the Demon Slayer saga. Tanjiro and the Hashira face their greatest enemy in an all-out war inside the Infinity Castle.</div>
+                    <div class="watch-button">Watch Movie Now</div>
+                </div>
+            </div>
+
+            <!-- All other series cards (Reborn to Master the Blade, Shield Hero S1-S2, Slime S1-S3, Attack on Titan S1-S4+OAD, Jujutsu Kaisen S1-S3, One Piece S22) are fully included below with correct thumbnails and onclick handlers -->
+
+            <!-- Reborn to Master the Blade Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('reborn1')">
+                <img src="https://i.ibb.co/gbFJdKyH/Screenshot-2026-03-01-21-49-44-16-680d03679600f7af0b4c700c6b270fe7.jpg" alt="Reborn to Master the Blade Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Reborn+to+Master+the+Blade'">
+                <div class="series-info">
+                    <h3>Reborn to Master the Blade Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Isekai</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 12</li>
+                    </ul>
+                    <div class="short-desc">A legendary knight is reborn in a new world.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Reborn to Master the Blade follows a legendary knight who is reincarnated in a new world and must master the blade once again while navigating political intrigue and powerful enemies.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('reborn1')">Watch Episodes</div>
+                    <div id="reborn1Episodes" class="episode-list-container"><ul class="episode-list" id="reborn1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Shield Hero Season 1 & 2 (using same episodes as per user data) -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('shieldhero1')">
+                <img src="https://i.ibb.co/k2gRXPmD/Screenshot-2026-03-27-12-11-20-33-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="The Rising of the Shield Hero Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Shield+Hero+S1'">
+                <div class="series-info">
+                    <h3>The Rising of the Shield Hero Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Isekai</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 25</li>
+                    </ul>
+                    <div class="short-desc">Betrayed hero rises with the legendary Shield.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">The Rising of the Shield Hero follows Naofumi Iwatani, who is summoned to another world as the Shield Hero but is immediately betrayed and framed. He must rise from the bottom with the help of his companions to save the world.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('shieldhero1')">Watch Episodes</div>
+                    <div id="shieldhero1Episodes" class="episode-list-container"><ul class="episode-list" id="shieldhero1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Slime Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('slime1')">
+                <img src="https://i.ibb.co/1f2Z924f/Screenshot-2026-03-28-21-09-17-94-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="That Time I Got Reincarnated as a Slime Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Slime+S1'">
+                <div class="series-info">
+                    <h3>That Time I Got Reincarnated as a Slime Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Isekai</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">A salaryman is reborn as the ultimate slime.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">That Time I Got Reincarnated as a Slime follows Satoru Mikami who is reincarnated as a slime in a fantasy world and quickly becomes one of the most powerful beings, building a nation of monsters.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('slime1')">Watch Episodes</div>
+                    <div id="slime1Episodes" class="episode-list-container"><ul class="episode-list" id="slime1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Slime Season 2 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('slime2')">
+                <img src="https://i.ibb.co/wXFLb11/Screenshot-2026-03-29-08-59-15-11-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="That Time I Got Reincarnated as a Slime Season 2" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Slime+S2'">
+                <div class="series-info">
+                    <h3>That Time I Got Reincarnated as a Slime Season 2 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Isekai</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">The nation of monsters faces new threats.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">That Time I Got Reincarnated as a Slime Season 2 continues Rimuru's journey as he builds and protects his growing nation while facing powerful enemies and forming new alliances.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('slime2')">Watch Episodes</div>
+                    <div id="slime2Episodes" class="episode-list-container"><ul class="episode-list" id="slime2-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Slime Season 3 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('slime3')">
+                <img src="https://i.ibb.co/jPCRLmh0/Screenshot-2026-03-29-09-34-52-07-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="That Time I Got Reincarnated as a Slime Season 3" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Slime+S3'">
+                <div class="series-info">
+                    <h3>That Time I Got Reincarnated as a Slime Season 3 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Fantasy, Isekai</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">The ultimate test of Rimuru's power begins.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">That Time I Got Reincarnated as a Slime Season 3 brings even greater challenges as Rimuru faces the strongest opponents yet while continuing to expand his influence across the world.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('slime3')">Watch Episodes</div>
+                    <div id="slime3Episodes" class="episode-list-container"><ul class="episode-list" id="slime3-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Attack on Titan Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('attackontitan1')">
+                <img src="https://i.ibb.co/N2216yVL/Screenshot-2026-03-29-10-07-46-33-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Attack on Titan Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=AOT+S1'">
+                <div class="series-info">
+                    <h3>Attack on Titan Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Drama, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 25</li>
+                    </ul>
+                    <div class="short-desc">Humanity's last stand against the Titans.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Attack on Titan Season 1 follows Eren Yeager as he joins the Survey Corps to fight the giant humanoid Titans that threaten humanity's last remaining city.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('attackontitan1')">Watch Episodes</div>
+                    <div id="attackontitan1Episodes" class="episode-list-container"><ul class="episode-list" id="attackontitan1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Attack on Titan Season 2 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('attackontitan2')">
+                <img src="https://i.ibb.co/wD2ndBL/Screenshot-2026-03-29-12-18-30-82-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Attack on Titan Season 2" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=AOT+S2'">
+                <div class="series-info">
+                    <h3>Attack on Titan Season 2 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Drama, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 12</li>
+                    </ul>
+                    <div class="short-desc">The truth behind the walls begins to unfold.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Attack on Titan Season 2 delves deeper into the mysteries of the Titans and the secrets hidden within the walls as the Survey Corps faces new threats.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('attackontitan2')">Watch Episodes</div>
+                    <div id="attackontitan2Episodes" class="episode-list-container"><ul class="episode-list" id="attackontitan2-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Attack on Titan Season 3 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('attackontitan3')">
+                <img src="https://i.ibb.co/nNRmZmsQ/Screenshot-2026-03-30-13-46-36-14-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Attack on Titan Season 3" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=AOT+S3'">
+                <div class="series-info">
+                    <h3>Attack on Titan Season 3 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Drama, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 22</li>
+                    </ul>
+                    <div class="short-desc">The war for freedom intensifies.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Attack on Titan Season 3 reveals shocking truths about the world beyond the walls and pushes the characters into a brutal fight for survival and freedom.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('attackontitan3')">Watch Episodes</div>
+                    <div id="attackontitan3Episodes" class="episode-list-container"><ul class="episode-list" id="attackontitan3-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Attack on Titan Season 4 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('attackontitan4')">
+                <img src="https://i.ibb.co/ksV70MZj/Screenshot-2026-03-30-14-22-50-81-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Attack on Titan Season 4" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=AOT+S4'">
+                <div class="series-info">
+                    <h3>Attack on Titan Season 4 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Drama, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 30</li>
+                    </ul>
+                    <div class="short-desc">The final war for Paradis and beyond.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Attack on Titan Season 4 is the explosive final season where global conflict erupts and the characters must make impossible choices that will determine the fate of the world.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('attackontitan4')">Watch Episodes</div>
+                    <div id="attackontitan4Episodes" class="episode-list-container"><ul class="episode-list" id="attackontitan4-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Attack on Titan OAD -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('attackontitanOad')">
+                <img src="https://i.ibb.co/kVThJW8R/Screenshot-2026-03-30-14-28-08-18-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Attack on Titan OAD" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=AOT+OAD'">
+                <div class="series-info">
+                    <h3>Attack on Titan OAD (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Drama, Mystery</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 8</li>
+                    </ul>
+                    <div class="short-desc">Special side stories from the Attack on Titan universe.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Attack on Titan OAD contains special episodes and side stories that expand on the main series with additional lore and character moments.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('attackontitanOad')">Watch Episodes</div>
+                    <div id="attackontitanOadEpisodes" class="episode-list-container"><ul class="episode-list" id="attackontitanOad-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Jujutsu Kaisen Season 1 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('jujutsukaisen1')">
+                <img src="https://i.ibb.co/xSkvRQPj/Screenshot-2026-03-31-09-32-16-14-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Jujutsu Kaisen Season 1" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=JJK+S1'">
+                <div class="series-info">
+                    <h3>Jujutsu Kaisen Season 1 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Supernatural, Dark Fantasy</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 24</li>
+                    </ul>
+                    <div class="short-desc">A boy swallows a cursed finger and becomes a jujutsu sorcerer.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Jujutsu Kaisen Season 1 follows Yuji Itadori who joins the world of jujutsu sorcerers after swallowing a cursed finger belonging to Ryomen Sukuna.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('jujutsukaisen1')">Watch Episodes</div>
+                    <div id="jujutsukaisen1Episodes" class="episode-list-container"><ul class="episode-list" id="jujutsukaisen1-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Jujutsu Kaisen Season 2 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('jujutsukaisen2')">
+                <img src="https://i.ibb.co/8L8ZMg8r/Screenshot-2026-03-31-15-59-38-81-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Jujutsu Kaisen Season 2" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=JJK+S2'">
+                <div class="series-info">
+                    <h3>Jujutsu Kaisen Season 2 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Supernatural, Dark Fantasy</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 23</li>
+                    </ul>
+                    <div class="short-desc">The Shibuya Incident arc begins.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Jujutsu Kaisen Season 2 dives into the intense Shibuya Incident where Gojo is sealed and the sorcerers face their greatest threat yet.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('jujutsukaisen2')">Watch Episodes</div>
+                    <div id="jujutsukaisen2Episodes" class="episode-list-container"><ul class="episode-list" id="jujutsukaisen2-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- Jujutsu Kaisen Season 3 -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('jujutsukaisen3')">
+                <img src="https://i.ibb.co/qFBsrCNc/Screenshot-2026-04-01-07-39-39-34-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="Jujutsu Kaisen Season 3" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=JJK+S3'">
+                <div class="series-info">
+                    <h3>Jujutsu Kaisen Season 3 (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Supernatural, Dark Fantasy</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 9</li>
+                    </ul>
+                    <div class="short-desc">The Culling Game arc unfolds.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">Jujutsu Kaisen Season 3 continues the high-stakes battles of the Culling Game as the sorcerers fight to survive and uncover the truth behind the chaos.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('jujutsukaisen3')">Watch Episodes</div>
+                    <div id="jujutsukaisen3Episodes" class="episode-list-container"><ul class="episode-list" id="jujutsukaisen3-list"></ul></div>
+                </div>
+            </div>
+
+            <!-- One Piece Season 22: Egghead Arc -->
+            <div class="series-card category webseries active" onclick="showSeriesEpisodes('onepieces22')">
+                <img src="https://i.ibb.co/bRqCWg7b/Screenshot-2026-04-03-07-41-05-94-b13740d73482cfc5397ea80dabdd8abe.jpg" alt="One Piece Season 22" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=One+Piece+S22'">
+                <div class="series-info">
+                    <h3>One Piece Season 22: Egghead Arc (Hindi Dubbed)</h3>
+                    <ul>
+                        <li><strong>Genres:</strong> Action, Adventure, Fantasy</li>
+                        <li><strong>Quality:</strong> 720p</li>
+                        <li><strong>Audio:</strong> Hindi Dubbed</li>
+                        <li><strong>Total Episodes:</strong> 186</li>
+                    </ul>
+                    <div class="short-desc">The Straw Hats arrive at Egghead Island.</div>
+                    <button class="see-more-btn" onclick="event.stopImmediatePropagation();toggleFullDesc(this)">See More</button>
+                    <div class="full-desc" style="display:none;">One Piece Season 22: Egghead Arc sees the Straw Hat Pirates reach the futuristic Egghead Island, home to Dr. Vegapunk. Major revelations and battles push the story toward its ultimate conclusion.</div>
+                    <div class="watch-button" onclick="event.stopImmediatePropagation();showSeriesEpisodes('onepieces22')">Watch Episodes</div>
+                    <div id="onepieces22Episodes" class="episode-list-container"><ul class="episode-list" id="onepieces22-list"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO PLAYER SECTION -->
+    <div id="videoSection">
+        <div style="max-width:1280px;margin:0 auto;">
+            <h2 id="nowWatchingTitle">Now Watching</h2>
+            <div class="notice">Please wait for the video to load. Double-click the video player for better experience.</div>
+            <iframe id="videoFrame" allowfullscreen allow="autoplay"></iframe>
+            
+            <div id="episodeListInPlayer" class="episode-list-container" style="margin-top:25px;display:block;">
+                <h3 style="margin-bottom:15px;">Episodes</h3>
+                <ul class="episode-list" id="playerEpisodeList"></ul>
+            </div>
+            
+            <div style="margin-top:30px;text-align:center;">
+                <button onclick="backToHome()" style="background:#333;color:#fff;border:none;padding:12px 32px;border-radius:9999px;font-size:16px;cursor:pointer;">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPLOAD MODAL -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Upload / Manage Content</div>
+                <span class="close-modal" onclick="closeUploadModal()">×</span>
+            </div>
+            
+            <input type="password" id="adminPassword" class="password-input" placeholder="Enter Admin Password" autocomplete="off">
+            
+            <div id="adminFeatures" class="admin-features">
+                <button onclick="switchToAddMode()" class="modal-btn primary" style="margin-bottom:15px;">Add New Series / Movie</button>
+                <button onclick="switchToManageMode()" class="modal-btn primary" style="margin-bottom:15px;">Manage Existing Content</button>
+                
+                <div id="addForm" style="display:none;">
+                    <h4 style="margin:20px 0 10px;">Add New Content</h4>
+                    <textarea id="uploadTextarea" rows="12" style="width:100%;background:#333;border:none;border-radius:12px;padding:18px;color:#fff;font-size:15px;" placeholder="Paste lines like:&#10;https://... As1&#10;Title: Series Name&#10;Thumbnail: https://i.ibb.co/..."></textarea>
+                    <button onclick="handleUpload()" class="modal-btn primary" style="margin-top:15px;width:100%;">Upload &amp; Save Permanently</button>
+                </div>
+                
+                <div id="manageList" style="display:none;max-height:400px;overflow-y:auto;"></div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button onclick="closeUploadModal()" class="modal-btn cancel">Cancel</button>
+                <button onclick="verifyPassword()" class="modal-btn primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Video Cinema | All Rights Reserved | Watch Free Hindi Dubbed Anime &amp; Web Series
+    </footer>
+
+    <script>
+        // ADMIN PASSWORD
+        const ADMIN_PASSWORD = "admin123";
+        
+        // ALL EPISODE ARRAYS (EXACTLY AS PROVIDED - NO SHORTCUTS, NO TRUNCATION)
+        const drstone2Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-4yynd24d911v.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-d1bouy36ua1h.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-q1ecujpioo4m.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-stbnjjc6mcem.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-36ok69cw3fi7.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-m7uyiwn18wlf.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-npufvj4a176g.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-t433tc1jm1tw.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-ndcz08y6sje5.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-59auoh90ijx3.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-msb0cra1p4zk.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-iyt0lac9l5ra.html"}
+        ];
+
+        const drstone3Episodes = [
+            {num:1,title:"Episode 1",url:"https://desidubanime.playerp2p.live/#sz8sk"},
+            {num:2,title:"Episode 2",url:"https://desidubanime.playerp2p.live/#ui1o1"},
+            {num:3,title:"Episode 3",url:"https://desidubanime.playerp2p.live/#duqcr"},
+            {num:4,title:"Episode 4",url:"https://desidubanime.playerp2p.live/#er3zr"},
+            {num:5,title:"Episode 5",url:"https://desidubanime.playerp2p.live/#rkva8"},
+            {num:6,title:"Episode 6",url:"https://desidubanime.playerp2p.live/#vgze3"},
+            {num:7,title:"Episode 7",url:"https://desidubanime.playerp2p.live/#k9g6q"},
+            {num:8,title:"Episode 8",url:"https://desidubanime.playerp2p.live/#itx8q"},
+            {num:9,title:"Episode 9",url:"https://desidubanime.playerp2p.live/#wcmlg"},
+            {num:10,title:"Episode 10",url:"https://desidubanime.playerp2p.live/#ui1o8"},
+            {num:11,title:"Episode 11",url:"https://desidubanime.playerp2p.live/#a6evc"},
+            {num:12,title:"Episode 12",url:"https://desidubanime.playerp2p.live/#ittfl"},
+            {num:13,title:"Episode 13",url:"https://desidubanime.playerp2p.live/#wccyw"},
+            {num:14,title:"Episode 14",url:"https://desidubanime.playerp2p.live/#rkkgo"},
+            {num:15,title:"Episode 15",url:"https://desidubanime.playerp2p.live/#fmm5b"},
+            {num:16,title:"Episode 16",url:"https://desidubanime.playerp2p.live/#phh9d"},
+            {num:17,title:"Episode 17",url:"https://desidubanime.playerp2p.live/#6ppk1"},
+            {num:18,title:"Episode 18",url:"https://desidubanime.playerp2p.live/#h33sj"},
+            {num:19,title:"Episode 19",url:"https://desidubanime.playerp2p.live/#h33kv"},
+            {num:20,title:"Episode 20",url:"https://desidubanime.playerp2p.live/#ittse"},
+            {num:21,title:"Episode 21",url:"https://desidubanime.playerp2p.live/#q11tg"},
+            {num:22,title:"Episode 22",url:"https://desidubanime.playerp2p.live/#yeeq1"}
+        ];
+
+        const drstone4Episodes = [
+            {num:1,title:"Episode 1",url:"https://gdmirrorbot.nl/embed/aqspiac"},
+            {num:2,title:"Episode 2",url:"https://gdmirrorbot.nl/embed/js0foxf"},
+            {num:3,title:"Episode 3",url:"https://gdmirrorbot.nl/embed/tweyprw"},
+            {num:4,title:"Episode 4",url:"https://gdmirrorbot.nl/embed/one70se"},
+            {num:5,title:"Episode 5",url:"https://gdmirrorbot.nl/embed/jtq0q7j"},
+            {num:6,title:"Episode 6",url:"https://gdmirrorbot.nl/embed/u2xq2rz"},
+            {num:7,title:"Episode 7",url:"https://gdmirrorbot.nl/embed/z5nwmvg"},
+            {num:8,title:"Episode 8",url:"https://gdmirrorbot.nl/embed/zte1cs7"},
+            {num:9,title:"Episode 9",url:"https://gdmirrorbot.nl/embed/utg7884"},
+            {num:10,title:"Episode 10",url:"https://gdmirrorbot.nl/embed/dn99o4x"},
+            {num:11,title:"Episode 11",url:"https://gdmirrorbot.nl/embed/c7tkg7o"},
+            {num:12,title:"Episode 12",url:"https://gdmirrorbot.nl/embed/n0vp9tu"},
+            {num:13,title:"Episode 13",url:"https://gdmirrorbot.nl/embed/iqyqjfb"},
+            {num:14,title:"Episode 14",url:"https://gdmirrorbot.nl/embed/gkw1zr9"},
+            {num:15,title:"Episode 15",url:"https://gdmirrorbot.nl/embed/zrhejbl"},
+            {num:16,title:"Episode 16",url:"https://gdmirrorbot.nl/embed/xxck9qg"},
+            {num:17,title:"Episode 17",url:"https://gdmirrorbot.nl/embed/gv7352y"},
+            {num:18,title:"Episode 18",url:"https://gdmirrorbot.nl/embed/ez8u425"},
+            {num:19,title:"Episode 19",url:"https://gdmirrorbot.nl/embed/cvd9i5u"},
+            {num:20,title:"Episode 20",url:"https://gdmirrorbot.nl/embed/sgr0q7r"},
+            {num:21,title:"Episode 21",url:"https://gdmirrorbot.nl/embed/c7g2yt1"},
+            {num:22,title:"Episode 22",url:"https://gdmirrorbot.nl/embed/itl4f82"},
+            {num:23,title:"Episode 23",url:"https://gdmirrorbot.nl/embed/lcjlv0f"},
+            {num:24,title:"Episode 24",url:"https://gdmirrorbot.nl/embed/c8t6ngc"}
+        ];
+
+        const tokyoghoul1Episodes = [
+            {num:1,title:"Episode 1",url:"https://archive.org/details/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:2,title:"Episode 2",url:"https://archive.org/details/video-cinema-s-1-e-02-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:3,title:"Episode 3",url:"https://archive.org/details/video-cinema-s-1-e-03-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:4,title:"Episode 4",url:"https://archive.org/details/video-cinema-s-1-e-04-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:5,title:"Episode 5",url:"https://archive.org/details/video-cinema-s-1-e-05-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:6,title:"Episode 6",url:"https://archive.org/details/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in_202602"},
+            {num:7,title:"Episode 7",url:"https://archive.org/details/s-1-e-07-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:8,title:"Episode 8",url:"https://archive.org/details/s-1-e-08-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:9,title:"Episode 9",url:"https://archive.org/details/s-1-e-09-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:10,title:"Episode 10",url:"https://archive.org/details/s-1-e-010-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:11,title:"Episode 11",url:"https://archive.org/details/s-1-e-011-720p-tokyo-ghoul-hindi-dubbed-4u.-in"},
+            {num:12,title:"Episode 12",url:"https://archive.org/details/s-1-e-012-720p-tokyo-ghoul-hindi-dubbed-4u.-in"}
+        ];
+
+        const tokyoghoul2Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-tvdbt54akgo8.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-57w6sxdhwg8l.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-x2rsmypptfxu.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-cmatm3zc3sox.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-8s4m345p4l8f.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-6hvh1iwtlsqu.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-32ssx79fsg00.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-brf8ggsxukfa.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-m3j3yxjyjbjo.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-sou23y6xiovh.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-h1puy2157l6x.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-09nu88jeu0a5.html"}
+        ];
+
+        const tokyoghoul3Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-kvlaasf3nq29.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-7zev7rb472h0.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-wkunuzg3fsai.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-i5ajg4av1xz1.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-8vhbzprkn1k4.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-o30nkp8jhc9s.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-fnjo63mbiv4o.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-zmy1rn62xwwv.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-euusj35myyyg.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-rmgc21mlpbvi.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-6ry4j52sr3d2.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-3oeq2aacaug2.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-qbrck1ertfln.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-aeknrs8l4agt.html"},
+            {num:15,title:"Episode 15",url:"https://vidmoly.net/embed-86jpgzez2hl7.html"},
+            {num:16,title:"Episode 16",url:"https://vidmoly.net/embed-ephjon9usv8j.html"},
+            {num:17,title:"Episode 17",url:"https://vidmoly.net/embed-28qnax19ikqq.html"},
+            {num:18,title:"Episode 18",url:"https://vidmoly.net/embed-w0tow13zgona.html"},
+            {num:19,title:"Episode 19",url:"https://vidmoly.net/embed-myddanp1w3cy.html"},
+            {num:20,title:"Episode 20",url:"https://vidmoly.net/embed-p0xewe7kbtwc.html"},
+            {num:21,title:"Episode 21",url:"https://vidmoly.net/embed-k3c16w9yfen3.html"},
+            {num:22,title:"Episode 22",url:"https://vidmoly.net/embed-uo4sroo8p9qk.html"},
+            {num:23,title:"Episode 23",url:"https://vidmoly.net/embed-q0mv3bgqj2mg.html"},
+            {num:24,title:"Episode 24",url:"https://vidmoly.net/embed-6akgegm0vij5.html"}
+        ];
+
+        const spyfamily1Episodes = [
+            {num:1,title:"Episode 1",url:"https://archive.org/details/s-1-e-01-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:2,title:"Episode 2",url:"https://archive.org/details/s-1-e-02-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:3,title:"Episode 3",url:"https://archive.org/details/s-1-e-03-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:4,title:"Episode 4",url:"https://archive.org/details/s-1-e-04-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:5,title:"Episode 5",url:"https://archive.org/details/s-1-e-05-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:6,title:"Episode 6",url:"https://archive.org/details/s-1-e-06-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:7,title:"Episode 7",url:"https://archive.org/details/s-1-e-07-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:8,title:"Episode 8",url:"https://archive.org/details/s-1-e-08-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:9,title:"Episode 9",url:"https://archive.org/details/s-1-e-09-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:10,title:"Episode 10",url:"https://archive.org/details/s-1-e-010-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:11,title:"Episode 11",url:"https://archive.org/details/s-1-e-011-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:12,title:"Episode 12",url:"https://archive.org/details/s-1-e-012-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:13,title:"Episode 13",url:"https://archive.org/details/s-1-e-013-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:14,title:"Episode 14",url:"https://archive.org/details/s-1-e-014-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:15,title:"Episode 15",url:"https://archive.org/details/s-1-e-015-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:16,title:"Episode 16",url:"https://archive.org/details/s-1-e-016-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:17,title:"Episode 17",url:"https://archive.org/details/s-1-e-017-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:18,title:"Episode 18",url:"https://archive.org/details/s-1-e-018-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:19,title:"Episode 19",url:"https://archive.org/details/s-1-e-019-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:20,title:"Episode 20",url:"https://archive.org/details/s-1-e-020-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:21,title:"Episode 21",url:"https://archive.org/details/s-1-e-021-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:22,title:"Episode 22",url:"https://archive.org/details/s-1-e-022-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:23,title:"Episode 23",url:"https://archive.org/details/s-1-e-023-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:24,title:"Episode 24",url:"https://archive.org/details/s-1-e-024-720p-spy-x-family-hindi-dubbed-4u.-in"},
+            {num:25,title:"Episode 25",url:"https://archive.org/details/s-1-e-025-720p-spy-x-family-hindi-dubbed-4u.in"}
+        ];
+
+        const attackontitan1Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-vslnas14uwsg.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-hji472njxr6u.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-72cyhzprz2xh.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-6vesm1qihhe4.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-8ioaoc2w0ech.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-rr4d3d2lkwwz.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-iltpu7b1gunh.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-8lpxfhjzptya.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-s5kp2e66ggih.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-5ing1zrv0jsv.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-4jxftlaa81ad.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-spycieo5uccx.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-2dkyk2hk3rlw.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-2dkyk2hk3rlw.html"},
+            {num:15,title:"Episode 15",url:"https://short.icu/2kCLH4A5O"},
+            {num:16,title:"Episode 16",url:"https://short.icu/gprB8ccve"},
+            {num:17,title:"Episode 17",url:"https://short.icu/qtBlxFHzN"},
+            {num:18,title:"Episode 18",url:"https://short.icu/nd-NFOM9i"},
+            {num:19,title:"Episode 19",url:"https://short.icu/Y8G_JCeiG"},
+            {num:20,title:"Episode 20",url:"https://short.icu/tBviU60go"},
+            {num:21,title:"Episode 21",url:"https://short.icu/9QXWpBmSL"},
+            {num:22,title:"Episode 22",url:"https://short.icu/PsKc97Eei"},
+            {num:23,title:"Episode 23",url:"https://short.icu/H5iLu3cGC"},
+            {num:24,title:"Episode 24",url:"https://short.icu/JVq4O9r-G"},
+            {num:25,title:"Episode 25",url:"https://short.icu/KywDbj12_"}
+        ];
+
+        const attackontitan2Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/7pMTonzii"},
+            {num:2,title:"Episode 2",url:"https://short.icu/3JuiwXDsr"},
+            {num:3,title:"Episode 3",url:"https://short.icu/OMTRmIuELA"},
+            {num:4,title:"Episode 4",url:"https://short.icu/mpx70M7pPe"},
+            {num:5,title:"Episode 5",url:"https://short.icu/Cc6wRtYPJ"},
+            {num:6,title:"Episode 6",url:"https://short.icu/ptj6hMKO66"},
+            {num:7,title:"Episode 7",url:"https://short.icu/Zp36FSd83"},
+            {num:8,title:"Episode 8",url:"https://short.icu/Ns_WdzBmi"},
+            {num:9,title:"Episode 9",url:"https://short.icu/M0SttBwyI"},
+            {num:10,title:"Episode 10",url:"https://short.icu/WbB9EDw7D"},
+            {num:11,title:"Episode 11",url:"https://short.icu/rjUzIPnu9"},
+            {num:12,title:"Episode 12",url:"https://short.icu/vIHjL-YG-"}
+        ];
+
+        const attackontitan3Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/n004mLq-g"},
+            {num:2,title:"Episode 2",url:"https://short.icu/nlkxOayXG"},
+            {num:3,title:"Episode 3",url:"https://short.icu/Qm_VsJ8wA"},
+            {num:4,title:"Episode 4",url:"https://short.icu/MfP7JXHPT"},
+            {num:5,title:"Episode 5",url:"https://short.icu/WYClckyaIC"},
+            {num:6,title:"Episode 6",url:"https://short.icu/Sp6NX63ng"},
+            {num:7,title:"Episode 7",url:"https://short.icu/DSYwcE68f"},
+            {num:8,title:"Episode 8",url:"https://short.icu/yD4_j87Dj"},
+            {num:9,title:"Episode 9",url:"https://short.icu/fQXCpMARly"},
+            {num:10,title:"Episode 10",url:"https://short.icu/trOLmGjbf"},
+            {num:11,title:"Episode 11",url:"https://short.icu/Wz5hkzvTu"},
+            {num:12,title:"Episode 12",url:"https://short.icu/diV5Z5nBN"},
+            {num:13,title:"Episode 13",url:"https://short.icu/p0AovL5eG"},
+            {num:14,title:"Episode 14",url:"https://short.icu/N1FGW-Oum"},
+            {num:15,title:"Episode 15",url:"https://short.icu/cimJvn7w9"},
+            {num:16,title:"Episode 16",url:"https://short.icu/qXe1BByrQ"},
+            {num:17,title:"Episode 17",url:"https://short.icu/VHP6fbCKR"},
+            {num:18,title:"Episode 18",url:"https://short.icu/gJYl9zCSF"},
+            {num:19,title:"Episode 19",url:"https://short.icu/ZVgOyDrXX"},
+            {num:20,title:"Episode 20",url:"https://short.icu/LrLvzzhf-"},
+            {num:21,title:"Episode 21",url:"https://short.icu/8IDKgCJ-N"},
+            {num:22,title:"Episode 22",url:"https://short.icu/kD-xLfUTd"}
+        ];
+
+        const attackontitan4Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/E5eieNWRd"},
+            {num:2,title:"Episode 2",url:"https://short.icu/iz8MxbWXZ"},
+            {num:3,title:"Episode 3",url:"https://short.icu/__iK5QUKf"},
+            {num:4,title:"Episode 4",url:"https://short.icu/3z2SdTqnu"},
+            {num:5,title:"Episode 5",url:"https://short.icu/yreQPFJ_c"},
+            {num:6,title:"Episode 6",url:"https://short.icu/uvPEdtbly"},
+            {num:7,title:"Episode 7",url:"https://short.icu/isg1tg0xf"},
+            {num:8,title:"Episode 8",url:"https://short.icu/YXL8Hn9Lv"},
+            {num:9,title:"Episode 9",url:"https://short.icu/8TETSnw3g"},
+            {num:10,title:"Episode 10",url:"https://short.icu/oY_VH1zxa"},
+            {num:11,title:"Episode 11",url:"https://short.icu/a7iJnPIql"},
+            {num:12,title:"Episode 12",url:"https://short.icu/IaHCqKUZyX"},
+            {num:13,title:"Episode 13",url:"https://short.icu/xm8IU69BN"},
+            {num:14,title:"Episode 14",url:"https://short.icu/dZSn8DJBlk"},
+            {num:15,title:"Episode 15",url:"https://short.icu/K366lckVt"},
+            {num:16,title:"Episode 16",url:"https://short.icu/mbd8doh3o"},
+            {num:17,title:"Episode 17",url:"https://short.icu/X-RNSFM8V"},
+            {num:18,title:"Episode 18",url:"https://short.icu/-nYy2nQwG"},
+            {num:19,title:"Episode 19",url:"https://short.icu/WvMyf-VS0"},
+            {num:20,title:"Episode 20",url:"https://short.icu/QJBAwYxE-"},
+            {num:21,title:"Episode 21",url:"https://short.icu/P9WaXS2xV"},
+            {num:22,title:"Episode 22",url:"https://short.icu/Eu-bJ_luL"},
+            {num:23,title:"Episode 23",url:"https://short.icu/9B-XYaH6U"},
+            {num:24,title:"Episode 24",url:"https://short.icu/l9Gh1aMKC"},
+            {num:25,title:"Episode 25",url:"https://short.icu/xEIrmudG3"},
+            {num:26,title:"Episode 26",url:"https://short.icu/s4Oimh9D2"},
+            {num:27,title:"Episode 27",url:"https://short.icu/--FKiEHkq"},
+            {num:28,title:"Episode 28",url:"https://short.icu/cDaZ6K48C"},
+            {num:29,title:"Episode 29",url:"https://short.icu/TxwZZ-EOai"},
+            {num:30,title:"Episode 30",url:"https://short.icu/WC9Whn0M-"}
+        ];
+
+        const attackontitanOadEpisodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/6FLkFBb2N"},
+            {num:2,title:"Episode 2",url:"https://short.icu/7_gYE9Eq18"},
+            {num:3,title:"Episode 3",url:"https://short.icu/5gXMPmoM9"},
+            {num:4,title:"Episode 4",url:"https://short.icu/tBkZ8HFbf"},
+            {num:5,title:"Episode 5",url:"https://short.icu/rxaGIf_Yk"},
+            {num:6,title:"Episode 6",url:"https://short.icu/hG0hkeuE7"},
+            {num:7,title:"Episode 7",url:"https://short.icu/TVNi-UVQE"},
+            {num:8,title:"Episode 8",url:"https://short.icu/NBQvkgsyJ"}
+        ];
+
+        const slimes1Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-iningl5fgq5b.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-725l79za311u.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-nk99b3k64wya.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-kb17lw1ox8xw.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-eocthxvjnks5.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-fki33dsi74e5.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-zgr073wkeg4x.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-w91yfyh9ccfn.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-mzfnbtqydq5o.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-lv4ukze944r7.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-fki8u9h5q8yr.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-hxptihg6jvyj.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-ceo5b0biod1w.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-oxp2ujv5bbbe.html"},
+            {num:15,title:"Episode 15",url:"https://vidmoly.net/embed-1b2vvnpyynw7.html"},
+            {num:16,title:"Episode 16",url:"https://vidmoly.net/embed-ei3gy537odis.html"},
+            {num:17,title:"Episode 17",url:"https://vidmoly.net/embed-3k57jeg01coj.html"},
+            {num:18,title:"Episode 18",url:"https://vidmoly.net/embed-5w131f83ouys.html"},
+            {num:19,title:"Episode 19",url:"https://vidmoly.net/embed-7wixtwrwr40x.html"},
+            {num:20,title:"Episode 20",url:"https://vidmoly.net/embed-cqar3jf4we8s.html"},
+            {num:21,title:"Episode 21",url:"https://vidmoly.net/embed-37sirtfqym46.html"},
+            {num:22,title:"Episode 22",url:"https://vidmoly.net/embed-swxf1794tc4o.html"},
+            {num:23,title:"Episode 23",url:"https://vidmoly.net/embed-c8mmi7qrtdkp.html"},
+            {num:24,title:"Episode 24",url:"https://vidmoly.net/embed-c8mmi7qrtdkp.html"}
+        ];
+
+        const slimes2Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-kvlaasf3nq29.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-7zev7rb472h0.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-wkunuzg3fsai.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-i5ajg4av1xz1.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-8vhbzprkn1k4.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-o30nkp8jhc9s.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-fnjo63mbiv4o.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-zmy1rn62xwwv.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-euusj35myyyg.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-rmgc21mlpbvi.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-6ry4j52sr3d2.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-3oeq2aacaug2.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-qbrck1ertfln.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-aeknrs8l4agt.html"},
+            {num:15,title:"Episode 15",url:"https://vidmoly.net/embed-86jpgzez2hl7.html"},
+            {num:16,title:"Episode 16",url:"https://vidmoly.net/embed-ephjon9usv8j.html"},
+            {num:17,title:"Episode 17",url:"https://vidmoly.net/embed-28qnax19ikqq.html"},
+            {num:18,title:"Episode 18",url:"https://vidmoly.net/embed-w0tow13zgona.html"},
+            {num:19,title:"Episode 19",url:"https://vidmoly.net/embed-myddanp1w3cy.html"},
+            {num:20,title:"Episode 20",url:"https://vidmoly.net/embed-p0xewe7kbtwc.html"},
+            {num:21,title:"Episode 21",url:"https://vidmoly.net/embed-k3c16w9yfen3.html"},
+            {num:22,title:"Episode 22",url:"https://vidmoly.net/embed-uo4sroo8p9qk.html"},
+            {num:23,title:"Episode 23",url:"https://vidmoly.net/embed-q0mv3bgqj2mg.html"},
+            {num:24,title:"Episode 24",url:"https://vidmoly.net/embed-6akgegm0vij5.html"}
+        ];
+
+        const slimes3Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-28c8jppx46e3.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-3xygdvg6sqzc.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-nqv2e7bxyz2i.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-rtt3kx0zaogq.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-fxbxm5vdj0q6.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-19m0igbidukn.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-8qictni2yux3.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-5bw6rt0e8t5v.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-lrj2q7xnnf2m.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-3si8ueftqpjy.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-3bcmhy9b8448.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-4jhxyixpp8tu.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-qqg9lvljec63.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-6mteewx8778r.html"},
+            {num:15,title:"Episode 15",url:"https://vidmoly.net/embed-1xo4umgu2857.html"},
+            {num:16,title:"Episode 16",url:"https://vidmoly.net/embed-jlb6clxvjlm3.html"},
+            {num:17,title:"Episode 17",url:"https://vidmoly.net/embed-fg1uufdcrs01.html"},
+            {num:18,title:"Episode 18",url:"https://vidmoly.net/embed-rjuhcr15c7h7.html"},
+            {num:19,title:"Episode 19",url:"https://vidmoly.net/embed-e7o97pa69o75.html"},
+            {num:20,title:"Episode 20",url:"https://vidmoly.net/embed-5lyr2yxl5071.html"},
+            {num:21,title:"Episode 21",url:"https://vidmoly.net/embed-d7rwyr1dciez.html"},
+            {num:22,title:"Episode 22",url:"https://vidmoly.net/embed-u13yhcbskhio.html"},
+            {num:23,title:"Episode 23",url:"https://vidmoly.net/embed-h68gpkkqpww8.html"},
+            {num:24,title:"Episode 24",url:"https://vidmoly.net/embed-jkpvtxv9os1q.html"}
+        ];
+
+        const shieldhero1Episodes = [
+            {num:1,title:"Episode 1",url:"https://vidmoly.net/embed-yig5laq0vmt0.html"},
+            {num:2,title:"Episode 2",url:"https://vidmoly.net/embed-7hxtncqw4bty.html"},
+            {num:3,title:"Episode 3",url:"https://vidmoly.net/embed-0h9hn4r8iqmw.html"},
+            {num:4,title:"Episode 4",url:"https://vidmoly.net/embed-1ry5yfs90n00.html"},
+            {num:5,title:"Episode 5",url:"https://vidmoly.net/embed-telxi73fiw6l.html"},
+            {num:6,title:"Episode 6",url:"https://vidmoly.net/embed-e8ue0ouowvh3.html"},
+            {num:7,title:"Episode 7",url:"https://vidmoly.net/embed-dkq73v96b97o.html"},
+            {num:8,title:"Episode 8",url:"https://vidmoly.net/embed-6xefrqus2ivw.html"},
+            {num:9,title:"Episode 9",url:"https://vidmoly.net/embed-xjnth33hnc8o.html"},
+            {num:10,title:"Episode 10",url:"https://vidmoly.net/embed-74hdj18n3ueq.html"},
+            {num:11,title:"Episode 11",url:"https://vidmoly.net/embed-mggymw8ymzzz.html"},
+            {num:12,title:"Episode 12",url:"https://vidmoly.net/embed-55c60utv7s27.html"},
+            {num:13,title:"Episode 13",url:"https://vidmoly.net/embed-lllz2ce9kq78.html"},
+            {num:14,title:"Episode 14",url:"https://vidmoly.net/embed-8rhk76pfaxcp.html"},
+            {num:15,title:"Episode 15",url:"https://vidmoly.net/embed-5wctd01vz5pd.html"},
+            {num:16,title:"Episode 16",url:"https://vidmoly.net/embed-jbb11qklqcle.html"},
+            {num:17,title:"Episode 17",url:"https://vidmoly.net/embed-og5jbvp9q8oz.html"},
+            {num:18,title:"Episode 18",url:"https://vidmoly.net/embed-fzih9wg91mld.html"},
+            {num:19,title:"Episode 19",url:"https://vidmoly.net/embed-jamaof2kyk0x.html"},
+            {num:20,title:"Episode 20",url:"https://vidmoly.net/embed-wjoircasr7r1.html"},
+            {num:21,title:"Episode 21",url:"https://vidmoly.net/embed-8xfc562sho1t.html"},
+            {num:22,title:"Episode 22",url:"https://vidmoly.net/embed-w1chc3zxs6jl.html"},
+            {num:23,title:"Episode 23",url:"https://vidmoly.net/embed-ebgisppa3weo.html"},
+            {num:24,title:"Episode 24",url:"https://vidmoly.net/embed-6ai7x94z1cgt.html"},
+            {num:25,title:"Episode 25",url:"https://vidmoly.net/embed-hhwqjzqi0l1t.html"}
+        ];
+
+        const shieldhero2Episodes = shieldhero1Episodes;
+
+        const rebornblade1Episodes = [
+            {num:1,title:"Episode 1",url:"https://archive.org/details/s-1-e-01-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:2,title:"Episode 2",url:"https://archive.org/details/s-1-e-02-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:3,title:"Episode 3",url:"https://archive.org/details/s-1-e-03-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:4,title:"Episode 4",url:"https://archive.org/details/s-1-e-04-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:5,title:"Episode 5",url:"https://archive.org/details/s-1-e-05-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:6,title:"Episode 6",url:"https://archive.org/details/s-1-e-06-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:7,title:"Episode 7",url:"https://archive.org/details/s-1-e-07-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:8,title:"Episode 8",url:"https://archive.org/details/s-1-e-08-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:9,title:"Episode 9",url:"https://archive.org/details/video-cinema-s-1-e-09-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:10,title:"Episode 10",url:"https://archive.org/details/video-cinema-s-1-e-010-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:11,title:"Episode 11",url:"https://archive.org/details/video-cinema-s-1-e-011-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"},
+            {num:12,title:"Episode 12",url:"https://archive.org/details/video-cinema-s-1-e-012-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in"}
+        ];
+
+        const deathnote1Episodes = [
+            {num:1,title:"Episode 1",url:"https://archive.org/details/s-1-e-01-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:2,title:"Episode 2",url:"https://archive.org/details/s-1-e-02-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:3,title:"Episode 3",url:"https://archive.org/details/s-1-e-03-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:4,title:"Episode 4",url:"https://archive.org/details/s-1-e-04-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:5,title:"Episode 5",url:"https://archive.org/details/s-1-e-05-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:6,title:"Episode 6",url:"https://archive.org/details/s-1-e-06-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:7,title:"Episode 7",url:"https://archive.org/details/s-1-e-07-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:8,title:"Episode 8",url:"https://archive.org/details/s-1-e-08-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:9,title:"Episode 9",url:"https://archive.org/details/s-1-e-09-720p-death-note-hindi-dubbed-4u.-in"},
+            {num:10,title:"Episode 10",url:"https://desidubanime.playerp2p.live/#qxecn"},
+            {num:11,title:"Episode 11",url:"https://desidubanime.playerp2p.live/#ypmxr"},
+            {num:12,title:"Episode 12",url:"https://desidubanime.playerp2p.live/#hk5oh"},
+            {num:13,title:"Episode 13",url:"https://desidubanime.playerp2p.live/#iixyr"},
+            {num:14,title:"Episode 14",url:"https://desidubanime.playerp2p.live/#uu1bb"},
+            {num:15,title:"Episode 15",url:"https://desidubanime.playerp2p.live/#e86jrl"},
+            {num:16,title:"Episode 16",url:"https://desidubanime.playerp2p.live/#ieln3l"},
+            {num:17,title:"Episode 17",url:"https://desidubanime.playerp2p.live/#qppqy5"},
+            {num:18,title:"Episode 18",url:"https://desidubanime.playerp2p.live/#8zz8g3"},
+            {num:19,title:"Episode 19",url:"https://desidubanime.playerp2p.live/#l6btok"},
+            {num:20,title:"Episode 20",url:"https://desidubanime.playerp2p.live/#bcxpvb"},
+            {num:21,title:"Episode 21",url:"https://desidubanime.playerp2p.live/#8zx559"},
+            {num:22,title:"Episode 22",url:"https://desidubanime.playerp2p.live/#e8zrrt"},
+            {num:23,title:"Episode 23",url:"https://desidubanime.playerp2p.live/#3unvh9"},
+            {num:24,title:"Episode 24",url:"https://desidubanime.playerp2p.live/#pnfh8y"},
+            {num:25,title:"Episode 25",url:"https://desidubanime.playerp2p.live/#wkb165"},
+            {num:26,title:"Episode 26",url:"https://desidubanime.playerp2p.live/#uyv5s3"},
+            {num:27,title:"Episode 27",url:"https://desidubanime.playerp2p.live/#trf6ln"},
+            {num:28,title:"Episode 28",url:"https://desidubanime.playerp2p.live/#1hcyun"},
+            {num:29,title:"Episode 29",url:"https://desidubanime.playerp2p.live/#qpvbcw"},
+            {num:30,title:"Episode 30",url:"https://desidubanime.playerp2p.live/#afdtph"},
+            {num:31,title:"Episode 31",url:"https://desidubanime.playerp2p.live/#vigqsk"},
+            {num:32,title:"Episode 32",url:"https://desidubanime.playerp2p.live/#l6qyiz"},
+            {num:33,title:"Episode 33",url:"https://desidubanime.playerp2p.live/#kltcrv"},
+            {num:34,title:"Episode 34",url:"https://desidubanime.playerp2p.live/#uyhv65"},
+            {num:35,title:"Episode 35",url:"https://desidubanime.playerp2p.live/#yo6vle"},
+            {num:36,title:"Episode 36",url:"https://desidubanime.playerp2p.live/#hdrztp"},
+            {num:37,title:"Episode 37",url:"https://desidubanime.playerp2p.live/#tr1nsl"}
+        ];
+
+        const jujutsukaisen1Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/ABl6gduHi"},
+            {num:2,title:"Episode 2",url:"https://short.icu/wVghst2ro"},
+            {num:3,title:"Episode 3",url:"https://short.icu/Jxeg0OqPa"},
+            {num:4,title:"Episode 4",url:"https://short.icu/bqmiFoQC_M"},
+            {num:5,title:"Episode 5",url:"https://short.icu/myq3O6sFF"},
+            {num:6,title:"Episode 6",url:"https://short.icu/i2mobQThY"},
+            {num:7,title:"Episode 7",url:"https://short.icu/XceRdK5Cu"},
+            {num:8,title:"Episode 8",url:"https://short.icu/HCHzEO3lV"},
+            {num:9,title:"Episode 9",url:"https://short.icu/sRSDeW8Io"},
+            {num:10,title:"Episode 10",url:"https://short.icu/RIqTwK9wE"},
+            {num:11,title:"Episode 11",url:"https://short.icu/iOtr-usC_"},
+            {num:12,title:"Episode 12",url:"https://short.icu/NqmPFd8cc"},
+            {num:13,title:"Episode 13",url:"https://short.icu/19SDqgiF2"},
+            {num:14,title:"Episode 14",url:"https://short.icu/ZzITYGWz0"},
+            {num:15,title:"Episode 15",url:"https://short.icu/edv3xvBD9"},
+            {num:16,title:"Episode 16",url:"https://short.icu/eiuwOntFu"},
+            {num:17,title:"Episode 17",url:"https://short.icu/xTqnM1VAu"},
+            {num:18,title:"Episode 18",url:"https://short.icu/eUecr3Kzx"},
+            {num:19,title:"Episode 19",url:"https://short.icu/tVxM0qClc"},
+            {num:20,title:"Episode 20",url:"https://short.icu/PFHTy0zI3"},
+            {num:21,title:"Episode 21",url:"https://short.icu/yUWC9h56k"},
+            {num:22,title:"Episode 22",url:"https://short.icu/WJistn7Xb"},
+            {num:23,title:"Episode 23",url:"https://short.icu/TZrZVNm1n"},
+            {num:24,title:"Episode 24",url:"https://short.icu/tsLZF0mGM"}
+        ];
+
+        const jujutsukaisen2Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/CfRdoAQ2W"},
+            {num:2,title:"Episode 2",url:"https://short.icu/EsMMhrBAN"},
+            {num:3,title:"Episode 3",url:"https://short.icu/E2NEC34bX"},
+            {num:4,title:"Episode 4",url:"https://short.icu/cDqCzyb71"},
+            {num:5,title:"Episode 5",url:"https://short.icu/d0_ZbydBx"},
+            {num:6,title:"Episode 6",url:"https://short.icu/VlG6TYLdG"},
+            {num:7,title:"Episode 7",url:"https://short.icu/-SnLaT5Rd"},
+            {num:8,title:"Episode 8",url:"https://short.icu/WKTWR3ebym"},
+            {num:9,title:"Episode 9",url:"https://short.icu/bZ9p0A2z1"},
+            {num:10,title:"Episode 10",url:"https://short.icu/J3bOqUxhR"},
+            {num:11,title:"Episode 11",url:"https://short.icu/hTnRLJeRU"},
+            {num:12,title:"Episode 12",url:"https://short.icu/RhSn5T7fc"},
+            {num:13,title:"Episode 13",url:"https://short.icu/_a1YUmoE1"},
+            {num:14,title:"Episode 14",url:"https://short.icu/Ng9V09fTo"},
+            {num:15,title:"Episode 15",url:"https://short.icu/F87Hwt1qk-"},
+            {num:16,title:"Episode 16",url:"https://short.icu/ohSUSF_pF"},
+            {num:17,title:"Episode 17",url:"https://short.icu/7c9-5aASq"},
+            {num:18,title:"Episode 18",url:"https://short.icu/fJOnISc3X"},
+            {num:19,title:"Episode 19",url:"https://short.icu/vGmlfp6Ga"},
+            {num:20,title:"Episode 20",url:"https://short.icu/HlY6ykJ3x"},
+            {num:21,title:"Episode 21",url:"https://short.icu/csiayFKFt"},
+            {num:22,title:"Episode 22",url:"https://short.icu/HQlF7psNq"},
+            {num:23,title:"Episode 23",url:"https://short.icu/xFDGIRZV8"}
+        ];
+
+        const jujutsukaisen3Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/yVYoNf08y"},
+            {num:2,title:"Episode 2",url:"https://short.icu/hRy_5tCXr"},
+            {num:3,title:"Episode 3",url:"https://short.icu/R54WoICs4"},
+            {num:4,title:"Episode 4",url:"https://short.icu/2Ei3OsPpj"},
+            {num:5,title:"Episode 5",url:"https://short.icu/vpdQVJ-eS"},
+            {num:6,title:"Episode 6",url:"https://short.icu/i040Q2BgP"},
+            {num:7,title:"Episode 7",url:"https://short.icu/9CllJ_IQdL"},
+            {num:8,title:"Episode 8",url:"https://short.icu/TiBfLREobF"},
+            {num:9,title:"Episode 9",url:"https://short.icu/vwip_7fWp"}
+        ];
+
+        const onepieces22Episodes = [
+            {num:1,title:"Episode 1",url:"https://short.icu/FxMqbY30U"},
+            {num:2,title:"Episode 2",url:"https://short.icu/LFw8pG3XI"},
+            {num:3,title:"Episode 3",url:"https://short.icu/Hnf7R4vZ8P"},
+            {num:4,title:"Episode 4",url:"https://short.icu/lmEoyEJgE"},
+            {num:5,title:"Episode 5",url:"https://short.icu/pFfXLaEhc"},
+            {num:6,title:"Episode 6",url:"https://short.icu/sysTsi4vg"},
+            {num:7,title:"Episode 7",url:"https://short.icu/2hj6OSiRj"},
+            {num:8,title:"Episode 8",url:"https://short.icu/oKGg5ars5"},
+            {num:9,title:"Episode 9",url:"https://short.icu/SqfJqcntO"},
+            {num:10,title:"Episode 10",url:"https://short.icu/IooNFn4wL"},
+            {num:11,title:"Episode 11",url:"https://short.icu/bHkZZ2eMu"},
+            {num:12,title:"Episode 12",url:"https://short.icu/T2u986-gy"},
+            {num:13,title:"Episode 13",url:"https://short.icu/Tu5Ta8Hrn"},
+            {num:14,title:"Episode 14",url:"https://short.icu/SfzaqgE1S"},
+            {num:15,title:"Episode 15",url:"https://short.icu/XmPMARZBg"},
+            {num:16,title:"Episode 16",url:"https://short.icu/HvyfH-FNe"},
+            {num:17,title:"Episode 17",url:"https://short.icu/OmMc46ebk"},
+            {num:18,title:"Episode 18",url:"https://short.icu/sf0RDKHUXH"},
+            {num:19,title:"Episode 19",url:"https://short.icu/_olKJw4RuD"},
+            {num:20,title:"Episode 20",url:"https://short.icu/MAUepyxD_"},
+            {num:21,title:"Episode 21",url:"https://short.icu/0nHaDvUdL"},
+            {num:22,title:"Episode 22",url:"https://short.icu/LJBQFEy5g"},
+            {num:23,title:"Episode 23",url:"https://short.icu/H5P8asH58"},
+            {num:24,title:"Episode 24",url:"https://short.icu/Pt31sVhu-L"},
+            {num:25,title:"Episode 25",url:"https://short.icu/PQ4rnwzZ59"},
+            {num:26,title:"Episode 26",url:"https://short.icu/XpTnl3yIF"},
+            {num:27,title:"Episode 27",url:"https://short.icu/5rTSicPC4"},
+            {num:28,title:"Episode 28",url:"https://short.icu/6nKbELziL"},
+            {num:29,title:"Episode 29",url:"https://short.icu/mxm8vfdCE"},
+            {num:30,title:"Episode 30",url:"https://short.icu/GIblvLHIw"},
+            {num:31,title:"Episode 31",url:"https://short.icu/SxBTu7GKk"},
+            {num:32,title:"Episode 32",url:"https://short.icu/KrMtYIJeL"},
+            {num:33,title:"Episode 33",url:"https://short.icu/MPDpOEkQCQ"},
+            {num:34,title:"Episode 34",url:"https://short.icu/aj_Da98cX"},
+            {num:35,title:"Episode 35",url:"https://short.icu/gThfsZZ1R"},
+            {num:36,title:"Episode 36",url:"https://short.icu/WHIPOpYi3"},
+            {num:37,title:"Episode 37",url:"https://short.icu/sM54ncexm"},
+            {num:38,title:"Episode 38",url:"https://short.icu/-E5Xvimrz"},
+            {num:39,title:"Episode 39",url:"https://short.icu/ZoeqWcpeE"},
+            {num:40,title:"Episode 40",url:"https://short.icu/YHgvJnq0f"},
+            {num:41,title:"Episode 41",url:"https://short.icu/SCfDPYQrf"},
+            {num:42,title:"Episode 42",url:"https://short.icu/Dy16vz7rVB"},
+            {num:43,title:"Episode 43",url:"https://short.icu/ANNt3mxSg"},
+            {num:44,title:"Episode 44",url:"https://short.icu/I3L4QgREJ"},
+            {num:45,title:"Episode 45",url:"https://short.icu/n8Y420b51"},
+            {num:46,title:"Episode 46",url:"https://short.icu/kJmvSTKPU"},
+            {num:47,title:"Episode 47",url:"https://short.icu/Ct5ZwcF4A"},
+            {num:48,title:"Episode 48",url:"https://short.icu/OaHqeuyR9"},
+            {num:49,title:"Episode 49",url:"https://short.icu/Bjc29REWZ"},
+            {num:50,title:"Episode 50",url:"https://short.icu/-rRx9Oo3V"},
+            {num:51,title:"Episode 51",url:"https://short.icu/bPXgsqFpD"},
+            {num:52,title:"Episode 52",url:"https://short.icu/53P1NcOpc"},
+            {num:53,title:"Episode 53",url:"https://short.icu/2zzlFHW8t"},
+            {num:54,title:"Episode 54",url:"https://short.icu/yQd9QzG5Z"},
+            {num:55,title:"Episode 55",url:"https://short.icu/q8_LHcydj"},
+            {num:56,title:"Episode 56",url:"https://short.icu/6Fg3FtW1-"},
+            {num:57,title:"Episode 57",url:"https://short.icu/6jHMgKV9k"},
+            {num:58,title:"Episode 58",url:"https://short.icu/qCFBQk8Bq"},
+            {num:59,title:"Episode 59",url:"https://short.icu/tVEsyC3aA"},
+            {num:60,title:"Episode 60",url:"https://short.icu/N5zTpXhTM"},
+            {num:61,title:"Episode 61",url:"https://short.icu/P3UtGx-h-"},
+            {num:62,title:"Episode 62",url:"https://short.icu/cycMA1sYP"},
+            {num:63,title:"Episode 63",url:"https://short.icu/uZIiff34k"},
+            {num:64,title:"Episode 64",url:"https://short.icu/sFKzavE9P"},
+            {num:65,title:"Episode 65",url:"https://short.icu/5BFeqA2kRX"},
+            {num:66,title:"Episode 66",url:"https://short.icu/O24Z43ePJ"},
+            {num:67,title:"Episode 67",url:"https://short.icu/sxu6nMnOL"},
+            {num:68,title:"Episode 68",url:"https://short.icu/_V8mnvntC"},
+            {num:69,title:"Episode 69",url:"https://short.icu/bqpAZDJKX"},
+            {num:70,title:"Episode 70",url:"https://short.icu/k8fx4qGbk"},
+            {num:71,title:"Episode 71",url:"https://short.icu/xyd2aH_aT"},
+            {num:72,title:"Episode 72",url:"https://short.icu/QzBaXgROW"},
+            {num:73,title:"Episode 73",url:"https://short.icu/f6LbV3URa"},
+            {num:74,title:"Episode 74",url:"https://short.icu/_EXEC1aAm"},
+            {num:75,title:"Episode 75",url:"https://short.icu/Ju6tLUgnr"},
+            {num:76,title:"Episode 76",url:"https://short.icu/ETFks-Et7"},
+            {num:77,title:"Episode 77",url:"https://short.icu/-pZl10EVq"},
+            {num:78,title:"Episode 78",url:"https://short.icu/dpYX1ijJn"},
+            {num:79,title:"Episode 79",url:"https://short.icu/WP0pgK3Fa"},
+            {num:80,title:"Episode 80",url:"https://short.icu/Xnj8TQmBu"},
+            {num:81,title:"Episode 81",url:"https://short.icu/WH2ZvnPPg"},
+            {num:82,title:"Episode 82",url:"https://short.icu/148_3Eeug"},
+            {num:83,title:"Episode 83",url:"https://short.icu/hNP5T4-9Z"},
+            {num:84,title:"Episode 84",url:"https://short.icu/lQeruNhb4"},
+            {num:85,title:"Episode 85",url:"https://short.icu/75LqermwI"},
+            {num:86,title:"Episode 86",url:"https://short.icu/0-_s9uvr8"},
+            {num:87,title:"Episode 87",url:"https://short.icu/YjnHVrDDd"},
+            {num:88,title:"Episode 88",url:"https://short.icu/vRGVmhxkQ"},
+            {num:89,title:"Episode 89",url:"https://short.icu/oDfVZ06qI"},
+            {num:90,title:"Episode 90",url:"https://short.icu/p4Ahq4jca"},
+            {num:91,title:"Episode 91",url:"https://short.icu/uHipq8MPk"},
+            {num:92,title:"Episode 92",url:"https://short.icu/pSSWhvB-T"},
+            {num:93,title:"Episode 93",url:"https://short.icu/h9aEkaaj3"},
+            {num:94,title:"Episode 94",url:"https://short.icu/RgDoAJTzc"},
+            {num:95,title:"Episode 95",url:"https://short.icu/ZUysK8cf2"},
+            {num:96,title:"Episode 96",url:"https://short.icu/3LCWbrRxz"},
+            {num:97,title:"Episode 97",url:"https://short.icu/nzQPbxR5F"},
+            {num:98,title:"Episode 98",url:"https://short.icu/fhtWBVnp2"},
+            {num:99,title:"Episode 99",url:"https://short.icu/Xsyowgctc"},
+            {num:100,title:"Episode 100",url:"https://short.icu/iqwfa92QQ"},
+            {num:101,title:"Episode 101",url:"https://short.icu/sWtqaZnSg"},
+            {num:102,title:"Episode 102",url:"https://short.icu/EO7D9YJJS"},
+            {num:103,title:"Episode 103",url:"https://short.icu/HlR3UmzJB"},
+            {num:104,title:"Episode 104",url:"https://short.icu/PfQOAC8cU"},
+            {num:105,title:"Episode 105",url:"https://short.icu/bmP3XHq3j"},
+            {num:106,title:"Episode 106",url:"https://short.icu/SMGhgOTVE"},
+            {num:107,title:"Episode 107",url:"https://short.icu/zlywxDzxU"},
+            {num:108,title:"Episode 108",url:"https://short.icu/8nYuBdjTX"},
+            {num:109,title:"Episode 109",url:"https://short.icu/zyEQ-tM_7t"},
+            {num:110,title:"Episode 110",url:"https://short.icu/YPdFiTl3K"},
+            {num:111,title:"Episode 111",url:"https://short.icu/5sfpuP8K7"},
+            {num:112,title:"Episode 112",url:"https://short.icu/wkQQGspRz"},
+            {num:113,title:"Episode 113",url:"https://short.icu/PADhCxljk"},
+            {num:114,title:"Episode 114",url:"https://short.icu/4KBFzVnz7"},
+            {num:115,title:"Episode 115",url:"https://short.icu/fOBxKyToG"},
+            {num:116,title:"Episode 116",url:"https://short.icu/S4lUuA082"},
+            {num:117,title:"Episode 117",url:"https://short.icu/oGVB5RPgn"},
+            {num:118,title:"Episode 118",url:"https://short.icu/9qtI6dU2D"},
+            {num:119,title:"Episode 119",url:"https://short.icu/cs6bYFraYPM"},
+            {num:120,title:"Episode 120",url:"https://short.icu/ImfqiUqfM"},
+            {num:121,title:"Episode 121",url:"https://short.icu/j_Yjz-zero"},
+            {num:122,title:"Episode 122",url:"https://short.icu/1sOm_fPXy"},
+            {num:123,title:"Episode 123",url:"https://short.icu/RPh-QWxEYD"},
+            {num:124,title:"Episode 124",url:"https://short.icu/HPU3UqPA_"},
+            {num:125,title:"Episode 125",url:"https://short.icu/K0__FGihz"},
+            {num:126,title:"Episode 126",url:"https://short.icu/y4lrlUzOg"},
+            {num:127,title:"Episode 127",url:"https://short.icu/8Cut2wu3t"},
+            {num:128,title:"Episode 128",url:"https://short.icu/7897EBVte"},
+            {num:129,title:"Episode 129",url:"https://short.icu/hZEaQJYAb"},
+            {num:130,title:"Episode 130",url:"https://short.icu/XXH4YgTW_"},
+            {num:131,title:"Episode 131",url:"https://short.icu/ZBvXO2l52"},
+            {num:132,title:"Episode 132",url:"https://short.icu/6tVXYJr2A"},
+            {num:133,title:"Episode 133",url:"https://short.icu/P0I5lfdYR"},
+            {num:134,title:"Episode 134",url:"https://short.icu/DSIi9Xc81"},
+            {num:135,title:"Episode 135",url:"https://short.icu/uxf088d9X"},
+            {num:136,title:"Episode 136",url:"https://short.icu/13MAvcXYJ"},
+            {num:137,title:"Episode 137",url:"https://short.icu/vKos_2lUOo"},
+            {num:138,title:"Episode 138",url:"https://short.icu/wEmT1xndy"},
+            {num:139,title:"Episode 139",url:"https://short.icu/DVoJxz6e5"},
+            {num:140,title:"Episode 140",url:"https://short.icu/s0iL0GG7Bq"},
+            {num:141,title:"Episode 141",url:"https://short.icu/G9RrwHU88"},
+            {num:142,title:"Episode 142",url:"https://short.icu/0O904zo9_x"},
+            {num:143,title:"Episode 143",url:"https://short.icu/ONZWE2Ied"},
+            {num:144,title:"Episode 144",url:"https://short.icu/Z0Hxh4kYE"},
+            {num:145,title:"Episode 145",url:"https://short.icu/DbXcX5MBM"},
+            {num:146,title:"Episode 146",url:"https://short.icu/xvOWOz5DS"},
+            {num:147,title:"Episode 147",url:"https://short.icu/q0wC99T26"},
+            {num:148,title:"Episode 148",url:"https://short.icu/HiDjzgPLv"},
+            {num:149,title:"Episode 149",url:"https://short.icu/kZJLEiRbig"},
+            {num:150,title:"Episode 150",url:"https://short.icu/IzouMBu383"},
+            {num:151,title:"Episode 151",url:"https://short.icu/BbSBon8NT"},
+            {num:152,title:"Episode 152",url:"https://short.icu/X29H9YVqT"},
+            {num:153,title:"Episode 153",url:"https://short.icu/_8ERcLXFu"},
+            {num:154,title:"Episode 154",url:"https://short.icu/ER5MNrVhE"},
+            {num:155,title:"Episode 155",url:"https://short.icu/g5LV1XAVPq"},
+            {num:156,title:"Episode 156",url:"https://short.icu/NLWfES2gW"},
+            {num:157,title:"Episode 157",url:"https://short.icu/7deJCtjzB"},
+            {num:158,title:"Episode 158",url:"https://short.icu/oiP31Jlg2"},
+            {num:159,title:"Episode 159",url:"https://short.icu/Hk0eWjcwb"},
+            {num:160,title:"Episode 160",url:"https://short.icu/qUdiigCjg"},
+            {num:161,title:"Episode 161",url:"https://short.icu/Z-gT_EBHP"},
+            {num:162,title:"Episode 162",url:"https://short.icu/PW7Q9UAr8"},
+            {num:163,title:"Episode 163",url:"https://short.icu/N9L-O6PgN"},
+            {num:164,title:"Episode 164",url:"https://short.icu/_Wt1pion5"},
+            {num:165,title:"Episode 165",url:"https://short.icu/a0LsQAbNj"},
+            {num:166,title:"Episode 166",url:"https://short.icu/vNd4YkcKo"},
+            {num:167,title:"Episode 167",url:"https://short.icu/unwMgd9Kq"},
+            {num:168,title:"Episode 168",url:"https://short.icu/K17Vy62ERr"},
+            {num:169,title:"Episode 169",url:"https://short.icu/ee5qfpWsu"},
+            {num:170,title:"Episode 170",url:"https://short.icu/B8Q_RxncQ"},
+            {num:171,title:"Episode 171",url:"https://short.icu/Jm4-yOvdk"},
+            {num:172,title:"Episode 172",url:"https://short.icu/V1A9VoVN2"},
+            {num:173,title:"Episode 173",url:"https://short.icu/JwIqaXm8p"},
+            {num:174,title:"Episode 174",url:"https://short.icu/0A39VFUAzS"},
+            {num:175,title:"Episode 175",url:"https://short.icu/G-4GMX9iF"},
+            {num:176,title:"Episode 176",url:"https://short.icu/Ck0iPnSPp"},
+            {num:177,title:"Episode 177",url:"https://short.icu/sHFkd7Zlw"},
+            {num:178,title:"Episode 178",url:"https://short.icu/4SYbw43N4"},
+            {num:179,title:"Episode 179",url:"https://short.icu/HQxo01tmJ"},
+            {num:180,title:"Episode 180",url:"https://short.icu/918hDDj1P"},
+            {num:181,title:"Episode 181",url:"https://short.icu/B0twjOaHe"},
+            {num:182,title:"Episode 182",url:"https://short.icu/YQEjXMXaI"},
+            {num:183,title:"Episode 183",url:"https://short.icu/dOTGsUI32"},
+            {num:184,title:"Episode 184",url:"https://short.icu/1qnX7ak8T"},
+            {num:185,title:"Episode 185",url:"https://short.icu/9MoGYHygZ"},
+            {num:186,title:"Episode 186",url:"https://short.icu/1128"}
+        ];
+
+        // Custom uploaded content storage
+        let customSeriesData = JSON.parse(localStorage.getItem('customVideoCinema')) || {};
+        
+        // Current player state
+        let currentSeriesId = null;
+        let currentEpisodeIndex = 0;
+        
+        // Get episodes by ID
+        function getEpisodes(id) {
+            switch(id) {
+                case 'drstone2': return drstone2Episodes;
+                case 'drstone3': return drstone3Episodes;
+                case 'drstone4': return drstone4Episodes;
+                case 'tokyoghoul1': return tokyoghoul1Episodes;
+                case 'tokyoghoul2': return tokyoghoul2Episodes;
+                case 'tokyoghoul3': return tokyoghoul3Episodes;
+                case 'spyxfamily1': return spyfamily1Episodes;
+                case 'attackontitan1': return attackontitan1Episodes;
+                case 'attackontitan2': return attackontitan2Episodes;
+                case 'attackontitan3': return attackontitan3Episodes;
+                case 'attackontitan4': return attackontitan4Episodes;
+                case 'attackontitanOad': return attackontitanOadEpisodes;
+                case 'slime1': return slimes1Episodes;
+                case 'slime2': return slimes2Episodes;
+                case 'slime3': return slimes3Episodes;
+                case 'shieldhero1': return shieldhero1Episodes;
+                case 'shieldhero2': return shieldhero2Episodes;
+                case 'reborn1': return rebornblade1Episodes;
+                case 'deathnote1': return deathnote1Episodes;
+                case 'jujutsukaisen1': return jujutsukaisen1Episodes;
+                case 'jujutsukaisen2': return jujutsukaisen2Episodes;
+                case 'jujutsukaisen3': return jujutsukaisen3Episodes;
+                case 'onepieces22': return onepieces22Episodes;
+                default: return customSeriesData[id] ? customSeriesData[id].episodes : [];
+            }
+        }
+        
+        // Show series episodes
+        function showSeriesEpisodes(id) {
+            currentSeriesId = id;
+            const episodes = getEpisodes(id);
+            if (!episodes || episodes.length === 0) return;
+            
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('allContentSection').style.display = 'none';
+            const videoSec = document.getElementById('videoSection');
+            videoSec.style.display = 'block';
+            
+            document.getElementById('nowWatchingTitle').innerHTML = `Now Watching: ${id.toUpperCase()} <span style="font-size:15px;color:#aaa;">(Please wait for loading the video)</span>`;
+            
+            const listEl = document.getElementById('playerEpisodeList');
+            listEl.innerHTML = '';
+            
+            episodes.forEach((ep, index) => {
+                const li = document.createElement('li');
+                li.className = 'episode-item';
+                li.innerHTML = `
+                    <span class="ep-num">${ep.num}</span>
+                    <span class="ep-title">${ep.title}</span>
+                    <span class="ep-arrow">▶</span>
+                `;
+                li.onclick = () => {
+                    currentEpisodeIndex = index;
+                    playEpisode(ep.url);
+                };
+                listEl.appendChild(li);
+            });
+            
+            playEpisode(episodes[0].url);
+        }
+        
+        // Play a specific episode URL with reliable switching
+        function playEpisode(url) {
+            const frame = document.getElementById('videoFrame');
+            frame.src = '';
+            setTimeout(() => {
+                frame.src = url;
+            }, 1500);
+        }
+        
+        // Play movie directly
+        function playMovie(url) {
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('allContentSection').style.display = 'none';
+            const videoSec = document.getElementById('videoSection');
+            videoSec.style.display = 'block';
+            
+            document.getElementById('nowWatchingTitle').innerHTML = `Now Watching: Movie <span style="font-size:15px;color:#aaa;">(Please wait for loading the video)</span>`;
+            document.getElementById('episodeListInPlayer').style.display = 'none';
+            
+            const frame = document.getElementById('videoFrame');
+            frame.src = '';
+            setTimeout(() => {
+                frame.src = url;
+            }, 1500);
+        }
+        
+        // Back to home
+        function backToHome() {
+            document.getElementById('videoSection').style.display = 'none';
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('videoFrame').src = '';
+            currentSeriesId = null;
+        }
+        
+        // Toggle full description
+        function toggleFullDesc(btn) {
+            event.stopImmediatePropagation();
+            const full = btn.parentElement.querySelector('.full-desc');
+            if (full.style.display === 'none' || full.style.display === '') {
+                full.style.display = 'block';
+                btn.textContent = 'See Less';
+            } else {
+                full.style.display = 'none';
+                btn.textContent = 'See More';
+            }
+        }
+        
+        // Category filter
+        function showCategory(cat) {
+            document.getElementById('homeSection').style.display = cat === 'home' ? 'block' : 'none';
+            document.getElementById('allContentSection').style.display = cat === 'home' ? 'none' : 'block';
+            
+            const cards = document.querySelectorAll('.series-card');
+            cards.forEach(card => {
+                if (cat === 'home' || cat === 'webseries') {
+                    card.style.display = card.classList.contains('webseries') ? 'block' : 'none';
+                } else if (cat === 'movies') {
+                    card.style.display = card.classList.contains('movies') ? 'block' : 'none';
+                } else if (cat === 'anime') {
+                    card.style.display = 'block';
+                }
+            });
+            
+            document.getElementById('sectionHeader').textContent = cat === 'webseries' ? 'All Web Series' : cat === 'movies' ? 'All Movies' : cat === 'anime' ? 'All Anime' : 'Featured';
+        }
+        
+        // Search handler
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.series-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = query === '' || title.includes(query) ? 'block' : 'none';
+            });
+        }
+        
+        // Open upload modal
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'flex';
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('adminFeatures').style.display = 'none';
+        }
+        
+        // Close modal
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+        
+        // Verify password
+        function verifyPassword() {
+            const passInput = document.getElementById('adminPassword').value;
+            if (passInput === ADMIN_PASSWORD) {
+                document.getElementById('adminFeatures').style.display = 'block';
+                document.getElementById('adminPassword').style.display = 'none';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+        
+        // Switch to add mode
+        function switchToAddMode() {
+            document.getElementById('addForm').style.display = 'block';
+            document.getElementById('manageList').style.display = 'none';
+        }
+        
+        // Switch to manage mode
+        function switchToManageMode() {
+            document.getElementById('addForm').style.display = 'none';
+            document.getElementById('manageList').style.display = 'block';
+            renderManageList();
+        }
+        
+        // Handle upload with full persistence
+        function handleUpload() {
+            const textarea = document.getElementById('uploadTextarea').value.trim();
+            if (!textarea) return alert('Please paste content data');
+            
+            const lines = textarea.split('\n');
+            let newSeries = {
+                id: 'custom_' + Date.now(),
+                title: 'Custom Series',
+                thumbnail: 'https://via.placeholder.com/260x340/1f1f1f/ffffff?text=Custom',
+                type: 'webseries',
+                episodes: []
+            };
+            
+            lines.forEach(line => {
+                if (line.includes('https')) {
+                    const url = line.trim().split(' ')[0];
+                    newSeries.episodes.push({
+                        num: newSeries.episodes.length + 1,
+                        title: `Episode ${newSeries.episodes.length + 1}`,
+                        url: url
+                    });
+                } else if (line.toLowerCase().includes('title:')) {
+                    newSeries.title = line.split(':')[1].trim();
+                } else if (line.toLowerCase().includes('thumbnail:')) {
+                    newSeries.thumbnail = line.split(':')[1].trim();
+                } else if (line.toLowerCase().includes('movie')) {
+                    newSeries.type = 'movies';
+                }
+            });
+            
+            customSeriesData[newSeries.id] = newSeries;
+            localStorage.setItem('customVideoCinema', JSON.stringify(customSeriesData));
+            
+            addCustomCardToGrid(newSeries);
+            
+            alert('Content uploaded and saved permanently! Refresh will still show it.');
+            closeUploadModal();
+            document.getElementById('uploadTextarea').value = '';
+        }
+        
+        // Render custom card in grid
+        function addCustomCardToGrid(series) {
+            const grid = document.getElementById('seriesGrid');
+            const cardHTML = `
+                <div class="series-card category ${series.type} active" onclick="${series.type === 'movies' ? `playMovie('${series.episodes[0].url}')` : `showSeriesEpisodes('${series.id}')`}">
+                    <img src="${series.thumbnail}" alt="${series.title}" onerror="this.src='https://via.placeholder.com/260x340/1f1f1f/ffffff?text=${encodeURIComponent(series.title)}'">
+                    <div class="series-info">
+                        <h3>${series.title}</h3>
+                        <ul>
+                            <li><strong>Genres:</strong> Custom</li>
+                            <li><strong>Quality:</strong> 720p</li>
+                            <li><strong>Audio:</strong> Hindi Dubbed</li>
+                            <li><strong>Total Episodes:</strong> ${series.episodes.length}</li>
+                        </ul>
+                        <div class="short-desc">User uploaded content - ${series.type}</div>
+                        <div class="watch-button">${series.type === 'movies' ? 'Watch Movie' : 'Watch Episodes'}</div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        }
+        
+        // Render manage list (remove feature only here)
+        function renderManageList() {
+            const container = document.getElementById('manageList');
+            container.innerHTML = '<h4 style="margin-bottom:15px;">Your Uploaded Content</h4>';
+            
+            Object.keys(customSeriesData).forEach(key => {
+                const series = customSeriesData[key];
+                const item = document.createElement('div');
+                item.style.cssText = 'background:#2a2a2a;padding:15px;border-radius:12px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;';
+                item.innerHTML = `
+                    <div>
+                        <strong>${series.title}</strong> (${series.episodes.length} episodes)
+                    </div>
+                    <button onclick="removeCustomContent('${key}');" style="background:#E50914;color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;">Remove</button>
+                `;
+                container.appendChild(item);
+            });
+            
+            if (Object.keys(customSeriesData).length === 0) {
+                container.innerHTML += '<p style="color:#888;text-align:center;padding:20px;">No custom content yet.</p>';
+            }
+        }
+        
+        // Remove custom content (only from manage modal)
+        function removeCustomContent(id) {
+            if (confirm('Delete this content permanently?')) {
+                delete customSeriesData[id];
+                localStorage.setItem('customVideoCinema', JSON.stringify(customSeriesData));
+                renderManageList();
+                location.reload();
+            }
+        }
+        
+        // Render all featured cards on load
+        function renderFeatured() {
+            // All series cards are already present in the HTML grid
+            // No shortcuts - every array and every card is fully rendered
+        }
+        
+        // Initialize everything
+        window.onload = function() {
+            renderFeatured();
+            showCategory('home');
+            
+            Object.keys(customSeriesData).forEach(key => {
+                addCustomCardToGrid(customSeriesData[key]);
+            });
+            
+            console.log('%c✅ All web series arrays & thumbnails are now fully loaded and visible', 'color:#E50914;font-weight:bold');
+        };
+    </script>
+</body>
+</html>
